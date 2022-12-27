@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -25,6 +25,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
+      backgroundImage: {
+        'history': "url('/src/assets/images/background.png')",
+      }
     },
   },
   plugins: [],
