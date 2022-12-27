@@ -120,8 +120,8 @@ export const Home = () => {
           />
         </div>
       </section>
-      <section className='flex justify-center pb-5'>
-        <div className='flex justify-between w-4/5 text-primary-500 p-4 my-7'>
+      <section className='flex justify-center my-7'>
+        <div className='flex justify-between w-4/5 text-primary-500'>
           <div className='flex flex-col justify-evenly gap-10'>
             <div className='flex flex-col gap-5'>
               <h2 className='text-3xl font-bold uppercase'>
@@ -169,6 +169,31 @@ export const Home = () => {
             alt='Imagem de um monge no templo enkoji'
             className='w-1/2'
           />
+        </div>
+      </section>
+      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed backdrop-brightness-50 p-10 h-[90vh]'>
+        <div className='flex flex-col justify-between gap-4 w-4/5 h-full text-primary-500 bg-white rounded px-10 pt-10'>
+          <span>
+            <h2 className='text-4xl font-bold mb-4'>A história do Templo Enkoji...</h2>
+            <p className='text-justify'>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, expedita eum nemo rerum autem ratione ab minima. Ex, distinctio officiis, omnis dolore adipisci incidunt veritatis pariatur molestiae reiciendis aperiam quos.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit ipsam temporibus placeat dolorem cupiditate vel reiciendis modi cum enim, nulla quas incidunt voluptate culpa quasi obcaecati praesentium numquam possimus.
+            </p>
+          </span>
+          <div className='flex gap-14 mx-10 h-3/5'>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
+              <h3 className='text-center mb-3'>Missão</h3>
+              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            </div>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
+              <h3 className='text-center mb-3'>Missão</h3>
+              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            </div>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
+              <h3 className='text-center mb-3'>Missão</h3>
+              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            </div>
+          </div>
         </div>
       </section>
     </>
