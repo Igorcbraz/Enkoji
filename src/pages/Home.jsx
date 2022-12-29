@@ -12,6 +12,8 @@ import { AddressMap } from '../components/AddressMap';
 import Logo from '../assets/images/logo.png';
 import Carrousel1 from '../assets/images/carrousel1.jpg';
 import Monge from '../assets/images/monge.png';
+import Person1 from '../assets/images/person1.png';
+import Person2 from '../assets/images/person2.png';
 
 import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
@@ -194,6 +196,40 @@ export const Home = () => {
               <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
             </div>
           </div>
+        </div>
+      </section>
+      <section className='flex flex-col justify-center items-center gap-10 my-7'>
+        <div className='flex justify-between gap-5 w-3/4'>
+          <img
+            className='w-4/5'
+            src={Person1}
+            alt='Foto monge ohata'
+          />
+          <span className='text-primary-500'>
+            <h3 className='text-3xl font-bold'>
+              Monge Ohata
+            </h3>
+            <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
+            <p className='text-xl font-light text-justify'>
+              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+            </p>
+          </span>
+        </div>
+        <div className='flex justify-between gap-5 w-3/4'>
+          <img
+            className='w-4/5'
+            src={Person2}
+            alt='Foto monge ohata'
+          />
+          <span className='text-primary-500'>
+            <h3 className='text-3xl font-bold'>
+              Monge Marcos Lopes
+            </h3>
+            <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
+            <p className='text-xl font-light text-justify'>
+              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+            </p>
+          </span>
         </div>
       </section>
     </>
