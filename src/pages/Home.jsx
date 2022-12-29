@@ -183,7 +183,7 @@ export const Home = () => {
           />
         </div>
       </section>
-      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed backdrop-brightness-50 p-10 h-[90vh]'>
+      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed p-10 h-[90vh]'>
         <div className='flex flex-col justify-between gap-4 w-4/5 h-full text-primary-500 bg-white rounded px-10 pt-10'>
           <span>
             <h2 className='text-4xl font-bold mb-4'>A história do Templo Enkoji...</h2>
@@ -273,7 +273,7 @@ export const Home = () => {
             <h3 className='text-6xl font-bold uppercase'>
               Galeria
             </h3>
-            <div className='grid grid-cols-2 grid-rows-2 gap-3'>
+            <div className='grid grid-cols-2 grid-rows-2 gap-3 h-full'>
               <img src={GridFooter1} alt='' className='row-span-2 h-full w-full'/>
               <img src={GridFooter2} alt='' className='h-full w-full'/>
               <img src={GridFooter3} alt='' className='h-full w-full'/>
