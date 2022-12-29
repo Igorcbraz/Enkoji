@@ -14,6 +14,9 @@ import Carrousel1 from '../assets/images/carrousel1.jpg';
 import Monge from '../assets/images/monge.png';
 import Person1 from '../assets/images/person1.png';
 import Person2 from '../assets/images/person2.png';
+import Grid1 from '../assets/images/grid1.png';
+import Grid2 from '../assets/images/grid2.png';
+import Grid3 from '../assets/images/grid3.png';
 
 import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
@@ -230,6 +233,31 @@ export const Home = () => {
               Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
             </p>
           </span>
+        </div>
+      </section>
+      <section className='flex justify-center bg-primary-500 p-7'>
+        <div className='grid grid-cols-2 gap-12 w-10/12'>
+          <div className='flex flex-col justify-evenly gap-5 text-white h-full'>
+            <h2 className='text-6xl font-medium'>
+              Saiba mais sobre o Budismo
+            </h2>
+            <p className='text-justify text-xl font-light'>
+              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo EnkojiTodo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!
+            </p>
+            <div className='flex flex-col gap-4'>
+              <button className='text-primary-500 bg-white px-5 py-3 rounded-full font-medium text-lg'>
+                Budismo no dia a dia
+              </button>
+              <button className='text-primary-500 bg-white px-5 py-3 rounded-full font-medium text-lg'>
+                Retiros - para quem é indicado
+              </button>
+            </div>
+          </div>
+          <div className='grid grid-cols-2 gap-5 h-full'>
+            <img src={Grid1} alt='Foto Buda' className='col-span-2'/>
+            <img src={Grid2} alt='Foto em momento de meditação' className='w-full'/>
+            <img src={Grid3} alt='Foto do templo ao lado de um lago' className='w-full h-full'/>
+          </div>
         </div>
       </section>
     </>
