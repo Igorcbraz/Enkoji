@@ -28,6 +28,14 @@ import GridFooter3 from '../assets/images/grid-footer-3.png';
 import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
 import WhatsApp from '../assets/icons/whatsapp.svg';
+import Youtube from '../assets/icons/youtube.svg';
+
+const SocialMedia = {
+  instagram: 'https://www.instagram.com/temploenkoji/',
+  facebook: 'https://www.facebook.com/Templo-Enkoji-702093283924657',
+  whatsapp: '',
+  youtube: ' https://www.youtube.com/@enkojitemplo'
+}
 
 export const Home = () => {
 
@@ -120,9 +128,18 @@ export const Home = () => {
               Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente! Venha ao templo Enkoji
             </p>
             <span className='flex gap-3'>
-              <img src={Instagram} alt='Logo Instagram' className='w-8 h-8'/>
-              <img src={Facebook} alt='Logo Facebook' className='w-8 h-8'/>
-              <img src={WhatsApp} alt='Logo WhatsApp' className='w-8 h-8'/>
+              <a href={SocialMedia.instagram} target='_blank' rel='noreferrer'>
+                <img src={Instagram} alt='Logo Instagram' className='w-8 h-8'/>
+              </a>
+              <a href={SocialMedia.facebook} target='_blank' rel='noreferrer'>
+                <img src={Facebook} alt='Logo Facebook' className='w-8 h-8'/>
+              </a>
+              <a href={SocialMedia.whatsapp} target='_blank' rel='noreferrer'>
+                <img src={WhatsApp} alt='Logo WhatsApp' className='w-8 h-8'/>
+              </a>
+              <a href={SocialMedia.youtube} target='_blank' rel='noreferrer'>
+                <img src={Youtube} alt='Logo Youtube' className='w-9 h-9'/>
+              </a>
             </span>
           </div>
           <img
