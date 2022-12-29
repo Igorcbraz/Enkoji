@@ -290,6 +290,7 @@ export const Home = () => {
             </div>
             <div className='flex flex-col gap-5'>
               <h4 className='text-3xl font-bold uppercase'>Já nos Visitou?</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis asperiores est id amet voluptate perspiciatis voluptatum</p>
               <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium'>
                 Conte Sua Experiência
               </button>
