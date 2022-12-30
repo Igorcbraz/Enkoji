@@ -1,26 +1,21 @@
 import React from 'react';
 import {
   // ChevronDownIcon,
-  PlusIcon,
-  HeartIcon,
-  PhoneIcon,
   ClockIcon,
   MapPinIcon
 } from '@heroicons/react/24/solid'
 import { AddressMap } from '../components/AddressMap';
+import { Navbar } from '../components/Navbar';
 
-import Logo from '../assets/images/logo.png';
+import { Links } from '../utils/links.js'
+
 import Monge from '../assets/images/monge.png';
-
 import Carrousel1 from '../assets/images/carrousel1.jpg';
-
 import Person1 from '../assets/images/person1.png';
 import Person2 from '../assets/images/person2.png';
-
 import Grid1 from '../assets/images/grid1.png';
 import Grid2 from '../assets/images/grid2.png';
 import Grid3 from '../assets/images/grid3.png';
-
 import GridFooter1 from '../assets/images/grid-footer-1.png';
 import GridFooter2 from '../assets/images/grid-footer-2.png';
 import GridFooter3 from '../assets/images/grid-footer-3.png';
@@ -31,23 +26,6 @@ import WhatsApp from '../assets/icons/whatsapp.svg';
 import Youtube from '../assets/icons/youtube.svg';
 import { ReactComponent as Waze } from '../assets/icons/waze.svg';
 import { ReactComponent as Maps } from '../assets/icons/maps.svg';
-
-import 'flowbite';
-
-const Links = {
-  socialMedia: {
-    instagram: 'https://www.instagram.com/temploenkoji/',
-    facebook: 'https://www.facebook.com/Templo-Enkoji-702093283924657',
-    whatsapp: 'https://wa.me/5555119135296?text=Ol%C3%A1%2C+gostaria+de+saber+mais+informa%C3%A7%C3%B5es+sobre+o+Templo+Enkoji+%F0%9F%91%8B%F0%9F%98%81',
-    youtube: ' https://www.youtube.com/@enkojitemplo',
-    maps: 'https://www.google.com.br/travel/entity/key/ChgIxa_Dhqec3hMaDS9nLzExZzZ5bWxtcTAQBA/reviews?ts=CAESABoECgIaACoECgAaAA&utm_campaign=sharing&utm_medium=link_btn&utm_source=poi',
-    shop: 'https://www.enkoji.com.br/'
-  },
-  track: {
-    waze: 'https://ul.waze.com/ul?place=ChIJhUh0Wn6yz5QRtbhtqvATOzM&ll=-23.74567900%2C-46.86607150&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location',
-    maps: 'https://www.google.com.br/travel/entity/key/ChgIxa_Dhqec3hMaDS9nLzExZzZ5bWxtcTAQBA?ved=0CAAQ5JsGahcKEwiwrrXLjp_8AhUAAAAAHQAAAAAQBQ&ts=CAESABoECgIaACoECgAaAA&utm_campaign=sharing&utm_medium=link_btn&utm_source=poi'
-  }
-}
 
 export const Home = () => {
 
@@ -65,82 +43,8 @@ export const Home = () => {
 
   return (
     <>
-      <header className='flex justify-center bg-primary-500 pt-4'>
-        <div className='flex justify-end gap-2 w-4/5'>
-          <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-            <PlusIcon
-              className='w-7 h-7'
-            />
-            <span>Seja Membro</span>
-          </button>
-          <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-            <HeartIcon
-              className='w-6 h-6'
-            />
-            <span>Doações</span>
-          </button>
-          <a href='#gallery'>
-            <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-              <PhoneIcon
-                className='w-6 h-6'
-              />
-              <span>Contato</span>
-            </button>
-          </a>
-        </div>
-      </header>
-      <nav className='flex justify-center bg-primary-500 pb-6 h-4/5'>
-        <div className='flex items-center gap-2 w-4/5' id='navbar-default'>
-          <img
-            src={Logo}
-            alt='Logo templo enkoji'
-            className='w-1/5'
-          />
-          <ul className='flex flex-row justify-around items-center p-4 rounded-full w-full bg-secondary-500 text-white text-xl font-medium'>
-            <li className='flex justify-between items-center gap-2'>
-              <a href='#history'>Sobre nós</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-            <li className='flex justify-between items-center gap-2'>
-              <a href='#buddhism'>Budismo</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-            <li className='flex justify-between items-center gap-2'>
-              <a href='#infos'>Programação</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-            <li className='flex justify-between items-center gap-2'>
-              <a href={Links.socialMedia.shop} target='_blank' rel='noreferrer'>Loja</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-            <li className='flex justify-between items-center gap-2'>
-              <a href='#gallery'>Mídia</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-            <li className='flex justify-between items-center gap-2'>
-              <a href='#infos'>Visite</a>
-              {/* <ChevronDownIcon
-                className='w-6 h-6 mt-1'
-              /> */}
-            </li>
-          </ul>
-        </div>
-        <button data-collapse-toggle='navbar-default' type='button' className='inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden focus:outline-none' aria-controls='navbar-default' aria-expanded='false'>
-          <span className='sr-only'>Open main menu</span>
-          <svg className='w-6 h-6' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fillRule='evenodd' d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' clipRule='evenodd'></path></svg>
-        </button>
-      </nav>
-      <section className='flex justify-center pb-5 bg-primary-500'>
+      <Navbar/>
+      <section className='flex justify-center pb-5 pt-28 md:pt-0 bg-primary-500'>
         <div className='flex justify-between gap-4 w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between'>
             <h1 className='text-6xl'>
