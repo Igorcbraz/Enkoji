@@ -6,11 +6,12 @@ import {
 } from '@heroicons/react/24/solid'
 import { AddressMap } from '../components/AddressMap';
 import { Navbar } from '../components/Navbar';
+import { Carousel } from 'react-responsive-carousel';
 
 import { Links } from '../utils/links.js'
 
 import Monge from '../assets/images/monge.png';
-import Carrousel1 from '../assets/images/carrousel1.jpg';
+// import Carrousel1 from '../assets/images/carrousel1.jpg';
 import Person1 from '../assets/images/person1.png';
 import Person2 from '../assets/images/person2.png';
 import Grid1 from '../assets/images/grid1.png';
@@ -68,11 +69,23 @@ export const Home = () => {
               </a>
             </span>
           </div>
-          <img
-            src={Carrousel1}
-            alt='Imagem do templo Enkoji'
-            className='w-full md:w-5/12'
-          />
+          <Carousel
+            className='presentation-mode w-full h-max'
+            autoFocus={true}
+            showThumbs={false}
+            showStatus={false}
+            useKeyboardArrows
+          >
+            <div>
+              <img src={Grid1} />
+            </div>
+            <div>
+              <img src={Grid2} />
+            </div>
+            <div>
+              <img src={Grid3} />
+            </div>
+          </Carousel>
         </div>
       </section>
       <section className='flex justify-center my-7' id='infos'>
