@@ -162,7 +162,7 @@ export const Home = () => {
         </div>
       </section>
       <section className='flex flex-col justify-center items-center gap-10 my-7'>
-        <div className='flex justify-between gap-5 w-3/4'>
+        <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
             className='w-4/5'
             src={Person1}
@@ -178,7 +178,7 @@ export const Home = () => {
             </p>
           </span>
         </div>
-        <div className='flex justify-between gap-5 w-3/4'>
+        <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
             className='w-4/5'
             src={Person2}
@@ -196,7 +196,7 @@ export const Home = () => {
         </div>
       </section>
       <section className='flex justify-center bg-primary-500 p-7' id='buddhism'>
-        <div className='grid grid-cols-2 gap-12 w-10/12'>
+        <div className='grid grid-cols-1 gap-12 w-10/12 md:grid-cols-2'>
           <div className='flex flex-col justify-evenly gap-5 text-white h-full'>
             <h2 className='text-6xl font-medium'>
               Saiba mais sobre o Budismo
@@ -221,7 +221,7 @@ export const Home = () => {
         </div>
       </section>
       <section className='flex justify-center bg-primary-500 p-7' id='gallery'>
-        <div className='grid grid-cols-2 gap-12 w-10/12 text-white'>
+        <div className='grid grid-cols-1 gap-12 w-10/12 text-white md:grid-cols-2'>
           <div className='flex flex-col gap-5'>
             <h3 className='text-6xl font-bold uppercase'>
               Galeria
