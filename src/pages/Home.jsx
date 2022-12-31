@@ -13,6 +13,7 @@ import Monge from '../assets/images/monge.png';
 import Carrousel1 from '../assets/images/carrousel1.jpg';
 import Person1 from '../assets/images/person1.png';
 import Person2 from '../assets/images/person2.png';
+import Person3 from '../assets/images/person3.png';
 import Grid1 from '../assets/images/grid1.png';
 import Grid2 from '../assets/images/grid2.png';
 import Grid3 from '../assets/images/grid3.png';
@@ -178,15 +179,31 @@ export const Home = () => {
             </p>
           </span>
         </div>
-        <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
+        <div className='flex justify-between flex-wrap-reverse gap-5 w-3/4 md:flex-nowrap'>
+          <span className='text-primary-500'>
+            <h3 className='text-3xl font-bold'>
+              Monge Marcos Lopes
+            </h3>
+            <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
+            <p className='text-xl font-light text-justify'>
+              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+            </p>
+          </span>
           <img
             className='w-4/5'
             src={Person2}
             alt='Foto monge ohata'
           />
+        </div>
+        <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
+          <img
+            className='w-4/5'
+            src={Person3}
+            alt='Foto Monge Luiz'
+          />
           <span className='text-primary-500'>
             <h3 className='text-3xl font-bold'>
-              Monge Marcos Lopes
+              Monge Luiz
             </h3>
             <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
             <p className='text-xl font-light text-justify'>
