@@ -76,19 +76,19 @@ export const Home = () => {
         </div>
       </section>
       <section className='flex justify-center my-7' id='infos'>
-        <div className='flex justify-between w-4/5 text-primary-500'>
+        <div className='flex justify-between flex-wrap w-4/5 text-primary-500 md:flex-nowrap'>
           <div className='flex flex-col justify-evenly gap-10'>
             <div className='flex flex-col gap-5'>
-              <h2 className='text-3xl font-bold uppercase'>
+              <h2 className='text-xl font-bold uppercase md:text-3xl'>
                 Horário de Funcionamento
               </h2>
               <div className='flex gap-3'>
                 <ClockIcon
-                  className='w-14 h-14 float-left'
+                  className='w-12 h-12 float-left md:w-14 md:h-14'
                 />
                 <span className='float-left'>
-                  <p className='text-xl'>Segunda a sexta: 14h às 18h</p>
-                  <p className='text-xl'>Sábado e Domingo: 9h às 17h</p>
+                  <p className='text-md md:text-xl'>Segunda a sexta: 14h às 18h</p>
+                  <p className='text-md md:text-xl'>Sábado e Domingo: 9h às 17h</p>
                 </span>
               </div>
               <button
@@ -99,15 +99,15 @@ export const Home = () => {
               </button>
             </div>
             <div className='flex flex-col gap-5'>
-              <h2 className='text-3xl font-bold uppercase'>
+              <h2 className='text-xl font-bold uppercase md:text-3xl'>
                 Localização
               </h2>
               <div className='flex gap-3'>
                 <MapPinIcon
-                  className='w-14 h-14 float-left'
+                  className='w-12 h-12 float-left md:w-14 md:h-14'
                 />
                 <span className='float-left w-3/4'>
-                  <p className='text-xl'>R. Izequias Hengles - Itapecerica da Serra, SP</p>
+                  <p className='text-md md:text-xl'>R. Izequias Hengles - Itapecerica da Serra, SP</p>
                 </span>
               </div>
               <div className='flex justify-between gap-5 mx-7'>
@@ -132,7 +132,7 @@ export const Home = () => {
           <img
             src={Monge}
             alt='Imagem de um monge no templo enkoji'
-            className='w-1/2'
+            className='w-full mt-5 md:w-1/2 md:mt-0'
           />
         </div>
       </section>
