@@ -1,18 +1,26 @@
+import { useState } from 'react';
 import {
   PlusIcon,
   HeartIcon,
   PhoneIcon
 } from '@heroicons/react/24/solid'
+import { Dialog } from '@headlessui/react'
 import { Links } from '../../../utils/links';
 
 import Logo from '../../../assets/images/logo.png';
 
 export const Desktop = () => {
+  const [modalMembersIsOpen, setModalMembersIsOpen] = useState(false);
+
+  const handleToggleModalMembers = () => {
+    setModalMembersIsOpen(!modalMembersIsOpen)
+  }
+
   return (
     <>
       <header className='flex justify-center bg-primary-500 pt-4'>
         <div className='flex justify-end gap-2 w-4/5'>
-          <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
+          <button onClick={handleToggleModalMembers} className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
             <PlusIcon
               className='w-7 h-7'
             />
@@ -63,6 +71,26 @@ export const Desktop = () => {
           </ul>
         </div>
       </nav>
+      <Dialog
+        open={modalMembersIsOpen}
+        onClose={() => setModalMembersIsOpen(false)}
+        className='relative z-50'
+      >
+        <div className='fixed inset-0 bg-black/30' aria-hidden='true' />
+        <div className='fixed inset-0 overflow-y-auto'>
+          <div className='fixed inset-0 flex items-center justify-center p-4'>
+            <Dialog.Panel className='w-full max-w-sm rounded bg-white'>
+              <Dialog.Title>Deactivate account</Dialog.Title>
+              <Dialog.Description>
+            This will permanently deactivate your account
+              </Dialog.Description>
+
+              <button onClick={() => setModalMembersIsOpen(false)}>Deactivate</button>
+              <button onClick={() => setModalMembersIsOpen(false)}>Cancel</button>
+            </Dialog.Panel>
+          </div>
+        </div>
+      </Dialog>
     </>
   )
 }
