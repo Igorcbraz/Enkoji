@@ -45,7 +45,7 @@ export const Home = () => {
   return (
     <>
       <Navbar/>
-      <section className='flex justify-center pb-5 pt-28 md:pt-0 bg-primary-500'>
+      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between gap-5 md:gap-0'>
             <h1 className='text-4xl md:text-6xl'>
@@ -55,16 +55,16 @@ export const Home = () => {
               Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente! Venha ao templo Enkoji
             </p>
             <span className='flex gap-3'>
-              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer'>
+              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
                 <img src={Instagram} alt='Logo Instagram' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
-              <a href={Links.socialMedia.facebook} target='_blank' rel='noreferrer'>
+              <a href={Links.socialMedia.facebook} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
                 <img src={Facebook} alt='Logo Facebook' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
-              <a href={Links.socialMedia.whatsapp} target='_blank' rel='noreferrer'>
+              <a href={Links.socialMedia.whatsapp} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
                 <img src={WhatsApp} alt='Logo WhatsApp' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
-              <a href={Links.socialMedia.youtube} target='_blank' rel='noreferrer'>
+              <a href={Links.socialMedia.youtube} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
                 <img src={Youtube} alt='Logo Youtube' className='w-6 h-6 md:w-9 md:h-9'/>
               </a>
             </span>
@@ -93,7 +93,7 @@ export const Home = () => {
                 </span>
               </div>
               <button
-                className='bg-primary-500 text-white text-4xs rounded-full py-2 mx-7'
+                className='bg-primary-500 text-white text-4xs rounded-full py-2 mx-7 transition hover:bg-transparent hover:text-primary-500 border-2 border-primary-500'
                 onClick={handleOpenSchedule}
               >
                 Acessar Cronograma
@@ -113,14 +113,14 @@ export const Home = () => {
               </div>
               <div className='flex justify-between gap-5 mx-7'>
                 <button
-                  className='flex flex-row justify-center items-center gap-2 bg-primary-500 text-white text-4xs rounded-full py-2 w-full'
+                  className='flex flex-row justify-center items-center gap-2 bg-primary-500 text-white text-4xs rounded-full py-2 w-full transition hover:bg-transparent hover:text-primary-500 border-2 border-primary-500'
                   onClick={() => handleOpenTrack('waze')}
                 >
                   Waze
                   <Waze className='w-7 h-7'/>
                 </button>
                 <button
-                  className='flex flex-row justify-center items-center gap-2 bg-primary-500 text-white text-4xs rounded-full py-2 w-full'
+                  className='flex flex-row justify-center items-center gap-2 bg-primary-500 text-white text-4xs rounded-full py-2 w-full transition hover:bg-transparent hover:text-primary-500 border-2 border-primary-500'
                   onClick={() => handleOpenTrack('maps')}
                 >
                   Maps
@@ -222,10 +222,10 @@ export const Home = () => {
               Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo EnkojiTodo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!
             </p>
             <div className='flex flex-col gap-4'>
-              <button className='text-primary-500 bg-white px-5 py-3 rounded-full text-xl font-medium'>
+              <button className='text-primary-500 bg-white px-5 py-3 rounded-full text-xl font-medium transition hover:bg-transparent hover:text-white border-2 border-white'>
                 Budismo no dia a dia
               </button>
-              <button className='text-primary-500 bg-white px-5 py-3 rounded-full text-xl font-medium'>
+              <button className='text-primary-500 bg-white px-5 py-3 rounded-full text-xl font-medium transition hover:bg-transparent hover:text-white border-2 border-white'>
                 Retiros - para quem é indicado
               </button>
             </div>
@@ -259,7 +259,7 @@ export const Home = () => {
                 templo.enkoji@gmail.com
               </a>
               <a href={Links.socialMedia.whatsapp} target='_blank' rel='noreferrer' className='w-full'>
-                <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full'>
+                <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full transition hover:bg-transparent hover:text-white border-2 border-white'>
                   Converse conosco pelo WhatsApp
                 </button>
               </a>
@@ -268,7 +268,7 @@ export const Home = () => {
               <h4 className='text-3xl font-bold uppercase'>Já nos Visitou?</h4>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis asperiores est id amet voluptate perspiciatis voluptatum</p>
               <a href={Links.socialMedia.maps} target='_blank' rel='noreferrer' className='w-full'>
-                <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full'>
+                <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full transition hover:bg-transparent hover:text-white border-2 border-white'>
                   Conte Sua Experiência
                 </button>
               </a>

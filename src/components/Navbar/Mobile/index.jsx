@@ -18,9 +18,9 @@ export const Mobile = () => {
   }
 
   return (
-    <nav className='bg-primary-800 px-2 py-2.5 fixed w-full z-20 top-0 left-0'>
+    <nav className='bg-gradient-to-r from-primary-500 to-primary-800 px-2 py-2.5 fixed w-full z-20 top-0 left-0'>
       <div className='container flex flex-wrap items-center justify-between'>
-        <a href='https://flowbite.com/' className='flex items-center'>
+        <a href='#' className='flex items-center'>
           <img src={Logo} className='h-14' alt='Enkoji Logo' />
         </a>
         <button
@@ -32,7 +32,7 @@ export const Mobile = () => {
           <svg className='w-6 h-6' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fillRule='evenodd' d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z' clipRule='evenodd'></path></svg>
         </button>
         <div className={`w-full mt-2 ${isOpen ? '' : 'hidden'}`}>
-          <ul className='flex flex-col p-4 mt-4g gap-2 border border-primary-300 rounded-lg bg-primary-700 '>
+          <ul className='flex flex-col p-4 mt-4g gap-2 border border-primary-300 rounded-lg bg-gradient-to-r from-primary-500 to-primary-800 '>
             <li>
               <button
                 onClick={() => handleActivationNavItem(1, '#history')}
