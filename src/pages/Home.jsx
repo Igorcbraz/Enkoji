@@ -45,33 +45,33 @@ export const Home = () => {
     <>
       <Navbar/>
       <section className='flex justify-center pb-5 pt-28 md:pt-0 bg-primary-500'>
-        <div className='flex justify-between gap-4 w-3/4 border border-white text-white p-9'>
-          <div className='flex flex-col justify-between'>
-            <h1 className='text-6xl'>
+        <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
+          <div className='flex flex-col justify-between gap-5 md:gap-0'>
+            <h1 className='text-4xl md:text-6xl'>
               Seja bem-vindo!
             </h1>
-            <p className='text-2xl w-5/6'>
+            <p className='text-md w-full md:w-5/6 md:text-2xl'>
               Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente! Venha ao templo Enkoji
             </p>
             <span className='flex gap-3'>
               <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer'>
-                <img src={Instagram} alt='Logo Instagram' className='w-8 h-8'/>
+                <img src={Instagram} alt='Logo Instagram' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
               <a href={Links.socialMedia.facebook} target='_blank' rel='noreferrer'>
-                <img src={Facebook} alt='Logo Facebook' className='w-8 h-8'/>
+                <img src={Facebook} alt='Logo Facebook' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
               <a href={Links.socialMedia.whatsapp} target='_blank' rel='noreferrer'>
-                <img src={WhatsApp} alt='Logo WhatsApp' className='w-8 h-8'/>
+                <img src={WhatsApp} alt='Logo WhatsApp' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
               <a href={Links.socialMedia.youtube} target='_blank' rel='noreferrer'>
-                <img src={Youtube} alt='Logo Youtube' className='w-9 h-9'/>
+                <img src={Youtube} alt='Logo Youtube' className='w-6 h-6 md:w-9 md:h-9'/>
               </a>
             </span>
           </div>
           <img
             src={Carrousel1}
             alt='Imagem do templo Enkoji'
-            className='w-5/12'
+            className='w-full md:w-5/12'
           />
         </div>
       </section>
