@@ -136,16 +136,16 @@ export const Home = () => {
           />
         </div>
       </section>
-      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed p-10 h-[90vh]' id='history'>
-        <div className='flex flex-col justify-between gap-4 w-4/5 h-full text-primary-500 bg-white rounded px-10 pt-10'>
+      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed p-10 h-fit md:h-[90vh]' id='history'>
+        <div className='flex flex-col justify-between gap-4 w-full h-fit text-primary-500 bg-white rounded px-10 pt-10 md:w-4/5 md:h-full'>
           <span>
-            <h2 className='text-4xl font-bold mb-4'>A história do Templo Enkoji...</h2>
-            <p className='text-justify'>
+            <h2 className='text-3xl font-bold mb-4 md:text-4xl'>A história do Templo Enkoji...</h2>
+            <p className='text-sm text-justify md:text-lg'>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, expedita eum nemo rerum autem ratione ab minima. Ex, distinctio officiis, omnis dolore adipisci incidunt veritatis pariatur molestiae reiciendis aperiam quos.
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit ipsam temporibus placeat dolorem cupiditate vel reiciendis modi cum enim, nulla quas incidunt voluptate culpa quasi obcaecati praesentium numquam possimus.
             </p>
           </span>
-          <div className='flex gap-14 mx-10 h-3/5'>
+          <div className='flex flex-wrap gap-6 md:flex-nowrap md:gap-14 md:h-3/5'>
             <div className='text-white bg-primary-500 rounded-t-xl p-5'>
               <h3 className='text-center mb-3'>Missão</h3>
               <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
