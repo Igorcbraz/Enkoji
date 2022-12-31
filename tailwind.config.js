@@ -2,7 +2,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}'
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/flowbite/**/*.js'
   ],
   theme: {
     extend: {
@@ -13,6 +14,10 @@ module.exports = {
           300: '#8DA276',
           400: '#6E8258',
           500: '#50643c',
+          600: '#465835',
+          700: '#3C4B2D',
+          800: '#323F25',
+          900: '#28321E',
         },
         secondary: {
           100: '#F3DCD3',
@@ -30,5 +35,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ]
 }
