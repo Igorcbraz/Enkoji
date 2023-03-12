@@ -49,10 +49,10 @@ export const Home = () => {
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between gap-5 md:gap-0'>
             <h1 className='text-4xl md:text-6xl'>
-              Seja bem-vindo!
+              Seja Bem-Vindo!
             </h1>
-            <p className='text-md w-full md:w-5/6 md:text-2xl'>
-              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente! Venha ao templo Enkoji
+            <p className='text-md text-justify w-full md:w-5/6 md:text-xl'>
+              Circundado pela natureza exuberante, observado pela rica fauna da floresta  e temperado com um ameno clima serrano, o templo é uma edificação sustentável e ambientalmente responsável que reúne as condições ideias para a meditação e as práticas dos que buscam desenvolver a paz interior.
             </p>
             <span className='flex gap-3'>
               <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
@@ -140,24 +140,35 @@ export const Home = () => {
       <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed p-10 h-fit md:h-[90vh]' id='history'>
         <div className='flex flex-col justify-between gap-4 w-full h-fit text-primary-500 bg-white rounded px-10 pt-10 md:w-4/5 md:h-full'>
           <span>
-            <h2 className='text-3xl font-bold mb-4 md:text-4xl'>A história do Templo Enkoji...</h2>
+            <h2 className='text-3xl font-bold mb-4 md:text-4xl'>A história do Templo Enkoji</h2>
+            <p className='text-sm text-justify mb-3  md:text-lg'>
+              O Enkoji é um templo da tradição budista japonesa Zen voltado à orientação de ensinamentos e práticas budistas.  Seu fundador e abade é o Rev. Tensho Ohata, nascido em 1920 no Japão.
+            </p>
+            <p className='text-sm text-justify mb-3  md:text-lg'>
+              As obras do templo se iniciaram em 1991, com o objetivo de acomodar melhor os membros da comunidade e os serviços religiosos a ela prestados em decorrência das atividades desenvolvidas pelo Rev. Tensho Ohata junto ao Kinkaku-ji.
+            </p>
             <p className='text-sm text-justify md:text-lg'>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, expedita eum nemo rerum autem ratione ab minima. Ex, distinctio officiis, omnis dolore adipisci incidunt veritatis pariatur molestiae reiciendis aperiam quos.
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum velit ipsam temporibus placeat dolorem cupiditate vel reiciendis modi cum enim, nulla quas incidunt voluptate culpa quasi obcaecati praesentium numquam possimus.
+              A construção do Enkoji durou dez anos, sendo inaugurado em 2001, em cerimônia que contou com a presença de autoridade de Itapecerica da Serra, além de muitos visitantes de diversas regiões do país e do Japão.
             </p>
           </span>
           <div className='flex flex-wrap gap-6 md:flex-nowrap md:gap-14 md:h-3/5'>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
-              <h3 className='text-center mb-3'>Missão</h3>
-              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-1/3'>
+              <h3 className='text-center font-bold mb-3'>Missão</h3>
+              <p className='text-justify'>
+                Proporcionar aos seus visitantes e à sangha os caminhos para se alcançar uma vida Zen, mantendo vivos os ensinamentos e a proposta do budismo da tradição Zen, com a melhor experiência em práticas meditativas, excelência em acolhimento, meios de comunicação e trabalhos sociais.
+              </p>
             </div>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
-              <h3 className='text-center mb-3'>Missão</h3>
-              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-1/3'>
+              <h3 className='text-center font-bold mb-3'>Visão</h3>
+              <p className='text-justify'>
+                Estabelecer um relacionamento único de conexão e  espiritualidade e ser reconhecido como o maior templo budismo da tradição Zen na região de São Paulo.
+              </p>
             </div>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5'>
-              <h3 className='text-center mb-3'>Missão</h3>
-              <p className='text-justify'>Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!</p>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-[32%]'>
+              <h3 className='text-center font-bold mb-3'>Valores</h3>
+              <p className='text-start'>
+                Amor,  Espiritualidade, Sustentabilidade, Integridade, Responsabilidade, Excelência, Natureza, Quietude, Abundância, Prosperidade
+              </p>
             </div>
           </div>
         </div>
