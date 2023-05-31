@@ -230,7 +230,7 @@ export const Home = () => {
               Saiba mais sobre o Budismo
             </h2>
             <p className='text-justify text-xl font-light'>
-              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo EnkojiTodo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo!
+            A filosofia budista é guiada pelos ensinamentos de Buda, que conduzem o indivíduo a uma felicidade plena, através das práticas meditativas, do controle da mente e da autoanálise de suas ações diárias. O budismo é reconhecido como uma filosofia de vida, porque os ensinamentos de Buda são focados na razão e na análise individual de cada ser humano.
             </p>
             <div className='flex flex-col gap-4'>
               <button className='text-primary-500 bg-white px-5 py-3 rounded-full text-xl font-medium transition hover:bg-transparent hover:text-white border-2 border-white'>
