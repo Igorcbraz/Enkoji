@@ -176,7 +176,7 @@ export const Home = () => {
       <section className='flex flex-col justify-center items-center gap-10 my-7'>
         <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
-            className='w-4/5'
+            className='w-1/4'
             src={Person1}
             alt='Foto monge ohata'
           />
@@ -186,7 +186,7 @@ export const Home = () => {
             </h3>
             <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
             <p className='text-xl font-light text-justify'>
-              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+              Fundador e primeiro abade  Rev. Tensho Ohata, nascido em 1918 no Japão e falecido em 2017.
             </p>
           </span>
         </div>
@@ -277,7 +277,6 @@ export const Home = () => {
             </div>
             <div className='flex flex-col gap-5'>
               <h4 className='text-3xl font-bold uppercase'>Conte a sua vivência no Templo Enkoji</h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis asperiores est id amet voluptate perspiciatis voluptatum</p>
               <a href={Links.socialMedia.maps} target='_blank' rel='noreferrer' className='w-full'>
                 <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full transition hover:bg-transparent hover:text-white border-2 border-white'>
                   Conte Sua Experiência
