@@ -54,7 +54,7 @@ export const Desktop = () => {
               <a href='#infos'>Programação</a>
             </li>
             <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
-              <a href={Links.socialMedia.shop} target='_blank' rel='noreferrer'>Loja</a>
+              <a href={Links.socialMedia.shop} target='_blank' rel='noreferrer'>Contribuição</a>
             </li>
             <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
               <a href='#gallery'>Mídia</a>

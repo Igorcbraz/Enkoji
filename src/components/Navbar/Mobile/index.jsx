@@ -64,7 +64,7 @@ export const Mobile = () => {
                 rel='noreferrer'
                 className='block py-2 pl-3 pr-4 text-white rounded hover:bg-primary-800'
               >
-                Loja
+                Contribuição
               </a>
             </li>
             <li>

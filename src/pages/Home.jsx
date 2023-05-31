@@ -15,11 +15,11 @@ import Person1 from '../assets/images/person1.png';
 import Person2 from '../assets/images/person2.png';
 import Person3 from '../assets/images/person3.png';
 import Grid1 from '../assets/images/grid1.png';
-import Grid2 from '../assets/images/grid2.png';
-import Grid3 from '../assets/images/grid3.png';
-import GridFooter1 from '../assets/images/grid-footer-1.png';
-import GridFooter2 from '../assets/images/grid-footer-2.png';
-import GridFooter3 from '../assets/images/grid-footer-3.png';
+import Grid2 from '../assets/images/grid2.jpg';
+import Grid3 from '../assets/images/grid3.jpg';
+import GridFooter1 from '../assets/images/grid-footer-1.jpg';
+import GridFooter2 from '../assets/images/grid-footer-2.jpg';
+import GridFooter3 from '../assets/images/grid-footer-3.jpg';
 
 import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
@@ -31,7 +31,7 @@ import { ReactComponent as Maps } from '../assets/icons/maps.svg';
 export const Home = () => {
 
   const handleOpenSchedule = () => {
-    // Open Schedule
+    window.open(Links.schedule, '_blank')
   }
 
   const handleOpenTrack = (plataform) => {
@@ -45,7 +45,7 @@ export const Home = () => {
   return (
     <>
       <Navbar/>
-      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
+      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-[77vh] from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between gap-5 md:gap-0'>
             <h1 className='text-4xl md:text-6xl'>
@@ -72,7 +72,7 @@ export const Home = () => {
           <img
             src={Carrousel1}
             alt='Imagem do templo Enkoji'
-            className='w-full md:w-5/12'
+            className='w-full object-cover md:w-5/12'
           />
         </div>
       </section>
@@ -137,8 +137,8 @@ export const Home = () => {
           />
         </div>
       </section>
-      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed p-10 h-fit md:h-[90vh]' id='history'>
-        <div className='flex flex-col justify-between gap-4 w-full h-fit text-primary-500 bg-white rounded px-10 pt-10 md:w-4/5 md:h-full'>
+      <section className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed h-fit p-5 md:p-10' id='history'>
+        <div className='flex flex-col justify-between gap-4 w-full h-fit text-primary-500 bg-white rounded px-10 pt-10 md:w-4/5'>
           <span>
             <h2 className='text-3xl font-bold mb-4 md:text-4xl'>A história do Templo Enkoji</h2>
             <p className='text-sm text-justify mb-3  md:text-lg'>
@@ -151,20 +151,20 @@ export const Home = () => {
               A construção do Enkoji durou dez anos, sendo inaugurado em 2001, em cerimônia que contou com a presença de autoridade de Itapecerica da Serra, além de muitos visitantes de diversas regiões do país e do Japão.
             </p>
           </span>
-          <div className='flex flex-wrap gap-6 md:flex-nowrap md:gap-14 md:h-3/5'>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-1/3'>
+          <div className='flex flex-wrap h-full gap-6 md:flex-nowrap md:gap-14 md:h-3/5'>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-full md:w-1/3'>
               <h3 className='text-center font-bold mb-3'>Missão</h3>
               <p className='text-justify'>
                 Proporcionar aos seus visitantes e à sangha os caminhos para se alcançar uma vida Zen, mantendo vivos os ensinamentos e a proposta do budismo da tradição Zen, com a melhor experiência em práticas meditativas, excelência em acolhimento, meios de comunicação e trabalhos sociais.
               </p>
             </div>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-1/3'>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-full md:w-1/3'>
               <h3 className='text-center font-bold mb-3'>Visão</h3>
               <p className='text-justify'>
                 Estabelecer um relacionamento único de conexão e  espiritualidade e ser reconhecido como o maior templo budismo da tradição Zen na região de São Paulo.
               </p>
             </div>
-            <div className='text-white bg-primary-500 rounded-t-xl p-5 w-[32%]'>
+            <div className='text-white bg-primary-500 rounded-t-xl p-5  w-full md:w-[32%]'>
               <h3 className='text-center font-bold mb-3'>Valores</h3>
               <p className='text-start'>
                 Amor,  Espiritualidade, Sustentabilidade, Integridade, Responsabilidade, Excelência, Natureza, Quietude, Abundância, Prosperidade
@@ -196,19 +196,19 @@ export const Home = () => {
               Monge Marcos Lopes
             </h3>
             <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
-            <p className='text-xl font-light text-justify'>
-              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+            <p className='text-base font-light text-justify'>
+            Marcos Lopes é bacharelado em musicoterapeuta formado na  FMU, facilitador de círculo de tambores comunitário (Rtbrasil), foi professor de música do curso técnico no Conservatório Beethoven por mais de 17 anos,  formado em facilitador em meditação na Saúde pela Unifesp, tem formação produção cultural e artístico pelo Senac,  formação em Administração de Conflitos Pelo Senac, atua como conselheiro e liderança comunitária, formado pelo Senad, Tem especialidade em docência na meditação pela Universidade Estácio, é coordenador e Monge do Templo Zen Budista Enkoji, fotógrafo Fine Art,  MBA Growth marketing pela faculdade Unopar, educação ambiental pelo Senai, ESG pela INBS além de  ministrante  palestras, seminários e oficinas em instituições de ensino, culturais, seminários e empresariais.
             </p>
           </span>
           <img
-            className='w-4/5'
+            className='w-full h-80'
             src={Person2}
-            alt='Foto monge ohata'
+            alt='Foto monge Marcos Lopes'
           />
         </div>
         <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
-            className='w-4/5'
+            className='w-full h-[21rem]'
             src={Person3}
             alt='Foto Monge Luiz'
           />
@@ -217,8 +217,8 @@ export const Home = () => {
               Monge Luiz
             </h3>
             <hr className='mb-4 h-1 w-2/3 bg-primary-500 border-0'/>
-            <p className='text-xl font-light text-justify'>
-              Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar ela pro mundo! Venha construí-la com a gente ! Venha ao templo Enkoji.Todo dia é um novo recomeço, um momento de criar a melhor versão de si e mostrar...
+            <p className='text-base font-light text-justify'>
+            Luiz Carlos Rusilo possui graduação em Engenharia de Minas pela Escola Politécnica da USP, mestre em Engenharia Mineral pela Escola Politécnica da USP, doutor em Engenharia Mineral pela Escola Politécnica da USP, graduado em Direito pela FD-USP e especialista em Direito Ambiental pela FD-PUCSP. Contabilista, e Profissional de Educação Física. Professor da Universidade Federal de Alfenas - Unifal-MG, do Núcleo de Engenharia de Minas desde 2014. Professor da Pontifícia Universidade Católica de São Paulo - PUC-SP, na Faculdade de Economia, Administração, Contabilidade e Atuária, área de Métodos Quantitativos, do MBA em Ciências Atuariais e da Faculdade de Ciências Exatas e Tecnologia da PUC-SP de 2006 a 2014. Tem experiência em Geotecnia, Mecânica de Rochas, Mecânica de Solos, Resistência dos Materiais, Confiabilidade Estrutural, estabilidade de estruturas em solo e rocha, Sustentabilidade, Meio Ambiente e tratamento estatístico e modelagem de dados em Ciências da Fala.
             </p>
           </span>
         </div>
@@ -257,7 +257,7 @@ export const Home = () => {
             <div className='grid grid-cols-2 grid-rows-2 gap-3 h-full'>
               <img src={GridFooter1} alt='' className='row-span-2 h-full w-full'/>
               <img src={GridFooter2} alt='' className='h-full w-full'/>
-              <img src={GridFooter3} alt='' className='h-full w-full'/>
+              <img src={GridFooter3} alt='' className='h-full w-full object-cover'/>
             </div>
           </div>
           <div className='flex flex-col gap-10'>
@@ -276,7 +276,7 @@ export const Home = () => {
               </a>
             </div>
             <div className='flex flex-col gap-5'>
-              <h4 className='text-3xl font-bold uppercase'>Já nos Visitou?</h4>
+              <h4 className='text-3xl font-bold uppercase'>Conte a sua vivência no Templo Enkoji</h4>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis asperiores est id amet voluptate perspiciatis voluptatum</p>
               <a href={Links.socialMedia.maps} target='_blank' rel='noreferrer' className='w-full'>
                 <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full transition hover:bg-transparent hover:text-white border-2 border-white'>
