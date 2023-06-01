@@ -5,7 +5,7 @@ import Logo from '../../../assets/images/logo.png';
 export const Desktop = () => {
   return (
     <>
-      <nav className='flex justify-center fixed w-full h-24 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 pb-6'>
+      <nav className='flex justify-center fixed z-50 w-full h-24 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 pb-6'>
         <div className='flex items-center justify-between gap-2 w-4/5 h-24' id='navbar-default'>
           <a href='#' className='w-[15%]'>
             <img

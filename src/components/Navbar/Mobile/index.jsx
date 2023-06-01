@@ -18,7 +18,7 @@ export const Mobile = () => {
   }
 
   return (
-    <nav className='bg-gradient-to-r from-primary-500 to-primary-800 px-2 py-2.5 fixed w-full z-20 top-0 left-0'>
+    <nav className='bg-gradient-to-r from-primary-500 z-50 to-primary-800 px-2 py-2.5 fixed w-full top-0 left-0'>
       <div className='container flex flex-wrap items-center justify-between'>
         <a href='#' className='flex items-center'>
           <img src={Logo} className='h-14' alt='Enkoji Logo' />
