@@ -45,17 +45,20 @@ export const Home = () => {
   return (
     <>
       <Navbar/>
-      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-[77vh] from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
+      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-fit md:h-[80vh] from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
-          <div className='flex flex-col justify-between gap-5 md:gap-0'>
-            <h1 className='text-4xl md:text-6xl'>
-              Seja Bem-Vindo!
-            </h1>
-            <p className='text-md text-justify w-full md:w-5/6 md:text-xl'>
-              Circundado pela natureza exuberante, observado pela rica fauna da floresta  e temperado com um ameno clima serrano, o templo é uma edificação sustentável e ambientalmente responsável que reúne as condições ideias para a meditação e as práticas dos que buscam desenvolver a paz interior.
-            </p>
-            <span className='flex gap-3'>
-              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
+          <div className='flex flex-col justify-between items-center gap-5 md:gap-0'>
+            <span className='md:mt-16'>
+              <h1 className='text-[2.7rem] md:text-[5rem] font-script'>
+                Templo Enkoji
+              </h1>
+              <hr className='w-full md:w-[85%] bg-gradient-to-r from-primary-500 to-primary-450 h-1 border-0 mt-[-0.5rem] md:mt-[-1rem] mb-3 md:mb-5'/>
+              <p className='text-sm md:text-base text-justify w-full leading-6 md:leading-7 md:w-5/6'>
+                O templo é um edifício sustentável, localizado em meio a uma natureza exuberante, com uma variedade de animais selvagens e um clima serrano ameno. Ele proporciona um ambiente ideal para a meditação e práticas que visam o desenvolvimento da paz interior.
+              </p>
+            </span>
+            <span className='flex justify-self-end gap-5'>
+              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:bg-white hover:brightness-[0.85]'>
                 <img src={Instagram} alt='Logo Instagram' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
               <a href={Links.socialMedia.facebook} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
@@ -176,7 +179,7 @@ export const Home = () => {
       <section className='flex flex-col justify-center items-center gap-10 my-7'>
         <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
-            className='w-1/4'
+            className='w-80 h-80'
             src={Person1}
             alt='Foto monge ohata'
           />
@@ -201,14 +204,14 @@ export const Home = () => {
             </p>
           </span>
           <img
-            className='w-full h-80'
+            className='w-80 h-80'
             src={Person2}
             alt='Foto monge Marcos Lopes'
           />
         </div>
         <div className='flex justify-between flex-wrap gap-5 w-3/4 md:flex-nowrap'>
           <img
-            className='w-full h-[21rem]'
+            className='w-80 h-80'
             src={Person3}
             alt='Foto Monge Luiz'
           />
@@ -276,7 +279,9 @@ export const Home = () => {
               </a>
             </div>
             <div className='flex flex-col gap-5'>
-              <h4 className='text-3xl font-bold uppercase'>Conte a sua vivência no Templo Enkoji</h4>
+              <h4 className='text-3xl font-bold uppercase'>
+                Conte a sua vivência <br/> no Templo Enkoji
+              </h4>
               <a href={Links.socialMedia.maps} target='_blank' rel='noreferrer' className='w-full'>
                 <button className='text-primary-500 bg-white px-4 py-2 rounded-full text-xl font-medium w-full transition hover:bg-transparent hover:text-white border-2 border-white'>
                   Conte Sua Experiência

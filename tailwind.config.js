@@ -31,7 +31,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Inter' ,'sans-serif'],
+        script: ['Kaushan Script' ,'sans-serif'],
       },
       backgroundImage: {
         'history': "url('/src/assets/images/background.png')",
