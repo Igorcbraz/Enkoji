@@ -45,7 +45,7 @@ export const Home = () => {
   return (
     <>
       <Navbar/>
-      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-fit md:h-[80vh] from-primary-400 via-primary-500 to-primary-700 md:pt-0'>
+      <section className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-fit md:h-[95vh] from-primary-400 via-primary-500 to-primary-700 md:pt-32'>
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between items-center gap-5 md:gap-0'>
             <span className='md:mt-16'>
@@ -58,7 +58,7 @@ export const Home = () => {
               </p>
             </span>
             <span className='flex justify-self-end gap-5'>
-              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:bg-white hover:brightness-[0.85]'>
+              <a href={Links.socialMedia.instagram} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
                 <img src={Instagram} alt='Logo Instagram' className='w-6 h-6 md:w-8 md:h-8'/>
               </a>
               <a href={Links.socialMedia.facebook} target='_blank' rel='noreferrer' className='transition hover:brightness-[0.85]'>
