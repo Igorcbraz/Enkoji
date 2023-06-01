@@ -110,7 +110,7 @@ export const Home = () => {
     <>
       <Navbar/>
       <section
-        className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-fit md:h-[98vh] from-primary-400 via-primary-500 to-primary-700 md:pt-32'
+        className='flex justify-center pb-5 pt-28 bg-gradient-to-r h-[85vh] md:h-[98vh] from-primary-400 via-primary-500 to-primary-700 md:pt-32'
       >
         <div className='flex justify-between flex-wrap-reverse md:flex-nowrap gap-4 w-11/12 md:w-3/4 border border-white text-white p-9'>
           <div className='flex flex-col justify-between items-center gap-5 md:gap-0'>
@@ -155,9 +155,9 @@ export const Home = () => {
           />
         </div>
       </section>
-      <animated.section className='flex justify-center my-7' id='infos' ref={section2} style={bottomToTops2}>
-        <div className='flex justify-between flex-wrap w-4/5 text-primary-500 md:flex-nowrap'>
-          <div className='flex flex-col justify-evenly gap-10'>
+      <section className='flex justify-center my-7' id='infos'>
+        <animated.div className='flex justify-between flex-wrap w-4/5 text-primary-500 md:flex-nowrap'>
+          <animated.div className='flex flex-col justify-evenly gap-10' ref={section2} style={bottomToTops2}  >
             <div className='flex flex-col gap-5'>
               <h2 className='text-xl font-bold uppercase md:text-3xl'>
                 Horário de Funcionamento
@@ -208,14 +208,14 @@ export const Home = () => {
               </div>
             </div>
             <AddressMap/>
-          </div>
+          </animated.div>
           <img
             src={Monge}
             alt='Imagem de um monge no templo enkoji'
             className='w-full mt-5 md:w-1/2 md:mt-0'
           />
-        </div>
-      </animated.section>
+        </animated.div>
+      </section>
       <section
         className='flex justify-center bg-history bg-cover bg-no-repeat bg-fixed h-fit p-5 md:p-10'
         id='history'
@@ -316,14 +316,14 @@ export const Home = () => {
               Saiba mais sobre o Budismo
             </h2>
             <div className='flex flex-col gap-4'>
-              <h3 className='text-primary-500 bg-white px-5 py-3 border-2 border-white rounded-md text-xl font-medium transition hover:brightness-[0.85]'>
+              <h3 className='text-primary-500 bg-white px-5 py-3 border-2 border-white rounded-md text-xl font-medium transition mt-14 md:mt-0 mb-5 md:mb-0 hover:brightness-[0.85]'>
                 Budismo no dia a dia
               </h3>
               <p className='text-justify text-xl font-light'>
               A filosofia budista é guiada pelos ensinamentos de Buda, que conduzem o indivíduo a uma felicidade plena, através das práticas meditativas, do controle da mente e da autoanálise de suas ações diárias. O budismo é reconhecido como uma filosofia de vida, porque os ensinamentos de Buda são focados na razão e na análise individual de cada ser humano.
               </p>
             </div>
-            <a href='https://www.enkoji.com.br/retiros-presencial-19862783' target='_blank' rel='noreferrer' className='text-primary-500 bg-white px-5 py-3 border-2 border-white rounded-md text-xl font-medium transition hover:brightness-[0.85]'>
+            <a href='https://www.enkoji.com.br/retiros-presencial-19862783' target='_blank' rel='noreferrer' className='text-primary-500 bg-white px-5 py-3 border-2 border-white rounded-md text-xl font-medium transition mt-10 md:mt-0 hover:brightness-[0.85]'>
               Retiros - Conecte-se com a natureza
             </a>
           </animated.div>
