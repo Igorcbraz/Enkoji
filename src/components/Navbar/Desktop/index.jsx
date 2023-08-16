@@ -1,8 +1,3 @@
-import {
-  PlusIcon,
-  HeartIcon,
-  PhoneIcon
-} from '@heroicons/react/24/solid'
 import { Links } from '../../../utils/links';
 
 import Logo from '../../../assets/images/logo.png';
@@ -10,59 +5,36 @@ import Logo from '../../../assets/images/logo.png';
 export const Desktop = () => {
   return (
     <>
-      <header className='flex justify-center bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 pt-4'>
-        <div className='flex justify-end gap-2 w-4/5'>
-          <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-            <PlusIcon
-              className='w-7 h-7'
-            />
-            <span>Seja Membro</span>
-          </button>
-          <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-            <HeartIcon
-              className='w-6 h-6'
-            />
-            <span>Doações</span>
-          </button>
-          <a href='#gallery'>
-            <button className='flex justify-between items-center gap-2 bg-secondary-500 rounded-full px-4 py-1 text-white text-xl font-normal'>
-              <PhoneIcon
-                className='w-6 h-6'
-              />
-              <span>Contato</span>
-            </button>
-          </a>
-        </div>
-      </header>
-      <nav className='flex justify-center bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 pb-6 h-4/5'>
-        <div className='flex items-center gap-2 w-4/5' id='navbar-default'>
-          <a href='#' className='w-1/4'>
+      <nav className='flex justify-center fixed z-50 w-full h-24 bg-gradient-to-r from-primary-400 via-primary-500 to-primary-700 pb-6'>
+        <div className='flex items-center justify-between gap-2 w-4/5 h-24' id='navbar-default'>
+          <a href='#' className='w-[15%]'>
             <img
               src={Logo}
               alt='Logo templo enkoji'
               className='w-full'
             />
           </a>
-          <ul className='flex flex-row justify-around items-center p-4 rounded-full w-full bg-gradient-to-r from-secondary-500 to-secondary-600 text-white text-xl font-medium'>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
+          <ul className='flex flex-row justify-center gap-9 items-center rounded-full w-full text-white text-lg font-light'>
+            <li className='group/navItem flex justify-between items-center tracking-widest relative'>
               <a href='#history'>Sobre nós</a>
+              <hr className='w-0 bg-white transition-all h-[1px] border-0 absolute mt-10 duration-500 group-hover/navItem:w-full'/>
             </li>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
+            <li className='group/navItem flex justify-between items-center tracking-widest relative'>
               <a href='#buddhism'>Budismo</a>
+              <hr className='w-0 bg-white transition-all h-[1px] border-0 absolute mt-10 duration-500 group-hover/navItem:w-full'/>
             </li>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
+            <li className='group/navItem flex justify-between items-center tracking-widest relative'>
               <a href='#infos'>Programação</a>
+              <hr className='w-0 bg-white transition-all h-[1px] border-0 absolute mt-10 duration-500 group-hover/navItem:w-full'/>
             </li>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
-              <a href={Links.socialMedia.shop} target='_blank' rel='noreferrer'>Contribuição</a>
-            </li>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
+            <li className='group/navItem flex justify-between items-center tracking-widest relative'>
               <a href='#gallery'>Mídia</a>
-            </li>
-            <li className='flex justify-between items-center gap-2 transition hover:text-secondary-800'>
-              <a href='#infos'>Visite</a>
+              <hr className='w-0 bg-white transition-all h-[1px] border-0 absolute mt-10 duration-500 group-hover/navItem:w-full'/>
             </li>
           </ul>
+          <span className='flex justify-center items-center font-medium text-white transition border-primary-400 border-[1px] bg-primary-500 px-6 py-2 rounded-md hover:bg-primary-600 hover:border-primary-300'>
+            <a href={Links.socialMedia.shop} target='_blank' rel='noreferrer'>Contribuição</a>
+          </span>
         </div>
       </nav>
     </>
