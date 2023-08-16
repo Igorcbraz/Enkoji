@@ -20,6 +20,7 @@
     "react/react-in-jsx-scope": "off",
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-single"],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "react/prop-types": "off"
   }
 }
