@@ -25,7 +25,7 @@ import {
   fetchRemove
 } from '../service/fetch/collaborators'
 
-import { PeopleIcon, MoneyIcon, CartIcon, ChatIcon } from '../assets/icons'
+import { PeopleIcon, MoneyIcon, CartIcon } from '../assets/icons'
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user'))
@@ -36,6 +36,11 @@ function Dashboard() {
   const [collaboratorsAPI, setCollaboratorsAPI] = useState([])
   const [columns, setColumns] = useState([])
   const [visibleColumns, setVisibleColumns] = useState([])
+  const [metrics, setMetrics] = useState({
+    totalAssociates: 0,
+    totalPayment: 0,
+    monthAssociates: 0,
+  })
   const [address, setAddress] = useState({
     cep: '',
     neighborhood: '',
@@ -51,7 +56,7 @@ function Dashboard() {
     birthday: '',
     contact: '',
     payment: '',
-    associationdate: ''
+    associationdate: null
   })
   const [debouncedSearch] = useDebounce(search, 1000)
   const nameInputRef = useRef()
@@ -62,8 +67,8 @@ function Dashboard() {
       { label: 'E-mail', key: 'email' },
       { label: 'Contato', key: 'contact' },
       { label: 'Mensalidade', key: 'payment' },
-      { label: 'Data Associação', key: 'associationdate' },
-      { label: 'Aniversário', key: 'birthday' },
+      { label: 'Data Associação', key: 'associationdateFormat' },
+      { label: 'Aniversário', key: 'birthdayFormat' },
       { label: 'CEP', key: 'cep' },
       { label: 'Rua', key: 'street' },
       { label: 'Bairro', key: 'neighborhood' },
@@ -71,7 +76,7 @@ function Dashboard() {
       { label: 'UF', key: 'uf' },
       { label: 'Complemento', key: 'complement' }
     ])
-    setVisibleColumns(['name', 'email', 'contact', 'payment', 'associationdate', 'birthday'])
+    setVisibleColumns(['name', 'email', 'contact', 'payment', 'associationdateFormat', 'birthdayFormat'])
     getAllCollaborators()
   }, [])
 
@@ -96,6 +101,7 @@ function Dashboard() {
       }
       const { data }  = await fetchGetMany(query)
 
+      metricSetter(data)
       setCollaborators(data)
       setCollaboratorsAPI(data)
     } catch (error) {
@@ -203,7 +209,7 @@ function Dashboard() {
       birthday: '',
       contact: '',
       payment: '',
-      associationdate: ''
+      associationdate: null
     })
   }
 
@@ -237,12 +243,34 @@ function Dashboard() {
     }
   }
 
+  const metricSetter = (data) => {
+    const totalAssociates = data.length
+    const totalPayment = data.reduce((acc, curr) => acc + parseFloat(curr.payment), 0)
+    const monthAssociates = data.filter(item => {
+      const date = new Date(item.associationdate)
+      const month = date.getUTCMonth() + 1
+      const year = date.getUTCFullYear()
+
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth() + 1
+      const currentYear = currentDate.getFullYear()
+
+      return month === currentMonth && year === currentYear
+    })
+
+    setMetrics({
+      totalAssociates,
+      totalPayment: totalPayment.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }),
+      monthAssociates: monthAssociates.length
+    })
+  }
+
   return (
     <>
       <PageTitle>Dashboard</PageTitle>
 
-      <div className='grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4'>
-        <InfoCard title='Total de Associados' value='6389'>
+      <div className='grid gap-6 mb-8 grid-cols-3'>
+        <InfoCard title='Total de Associados' value={metrics.totalAssociates}>
           <RoundIcon
             icon={PeopleIcon}
             iconColorClass='text-orange-500'
@@ -251,7 +279,7 @@ function Dashboard() {
           />
         </InfoCard>
 
-        <InfoCard title='Account ' value='$ 46,760.89'>
+        <InfoCard title='Mensalidade Total' value={metrics.totalPayment}>
           <RoundIcon
             icon={MoneyIcon}
             iconColorClass='text-green-500'
@@ -260,20 +288,14 @@ function Dashboard() {
           />
         </InfoCard>
 
-        <InfoCard title='New sales' value='376'>
+        <InfoCard
+          title='Novos Colaboradores'
+          value={metrics.monthAssociates}
+        >
           <RoundIcon
             icon={CartIcon}
             iconColorClass='text-blue-500'
             bgColorClass='bg-blue-100'
-            className='mr-4'
-          />
-        </InfoCard>
-
-        <InfoCard title='Pending contacts' value='35'>
-          <RoundIcon
-            icon={ChatIcon}
-            iconColorClass='text-teal-500'
-            bgColorClass='bg-teal-100'
             className='mr-4'
           />
         </InfoCard>
@@ -441,6 +463,7 @@ function Dashboard() {
                     <DatePicker
                       id='associationdate'
                       onChange={date => handleCollaborator({ associationdate: date })}
+                      value={collaborator.associationdate}
                     />
                   </div>
                 </section>

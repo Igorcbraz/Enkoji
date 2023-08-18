@@ -9,26 +9,26 @@ import {
 const fetchCreate = async (collaborator) => {
   const { data } = await create(collaborator)
 
-  return joinFirstAndLastName(data)
+  return formatCollaborator(data)
 }
 
 const fetchUpdate = async (id, collaborator) => {
   const { data } = await update(id, collaborator)
 
-  return joinFirstAndLastName(data)
+  return formatCollaborator(data)
 }
 
 const fetchRemove = async (id) => {
   const { data } = await remove(id)
 
-  return joinFirstAndLastName(data)
+  return formatCollaborator(data)
 }
 
 const fetchGetMany = async (params) => {
   const { data } = await getMany(params)
 
   const formatCollaborators = data.collaborators.map(collaborator => {
-    return joinFirstAndLastName(collaborator)
+    return formatCollaborator(collaborator)
   })
 
   return {
@@ -40,13 +40,15 @@ const fetchGetMany = async (params) => {
 const fetchGetOne = async (id) => {
   const { data } = await getOne(id)
 
-  return joinFirstAndLastName(data)
+  return formatCollaborator(data)
 }
 
-const joinFirstAndLastName = (collaborator) => {
+const formatCollaborator = (collaborator) => {
   return {
     ...collaborator,
-    name: collaborator.firstname + ' ' + collaborator.lastname
+    name: collaborator.firstname + ' ' + collaborator.lastname,
+    associationdateFormat: collaborator.associationdate ? new Date(collaborator.associationdate).toLocaleDateString('pt-BR') : null,
+    birthdayFormat: collaborator.birthday ? new Date(collaborator.birthday).toLocaleDateString('pt-BR') : null,
   }
 }
 

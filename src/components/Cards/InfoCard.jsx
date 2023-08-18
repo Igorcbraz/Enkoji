@@ -1,8 +1,8 @@
 import { Card } from 'flowbite-react'
 
-export const InfoCard = ({ title, value, children: icon }) => {
+export const InfoCard = ({ title, value, className, children: icon }) => {
   return (
-    <Card>
+    <Card className={className}>
       <div className='flex items-center'>
         {icon}
         <div>
