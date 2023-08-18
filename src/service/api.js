@@ -7,6 +7,7 @@ export const http = axios.create({
   timeout: 5000
 })
 
+
 const errorHandler = (error) => {
   if (error.response) {
     toast.error(error.response.data.message)
