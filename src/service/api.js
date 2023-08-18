@@ -23,9 +23,10 @@ http.interceptors.response.use(
 
 http.interceptors.request.use(async (config) => {
   try {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (user.user_id) {
-      config.headers.Authorization = JSON.stringify({ user_id: user.user_id })
+    const user = localStorage.getItem('user')
+    if (user) {
+      const parseUser = JSON.parse(user)
+      config.headers.Authorization = JSON.stringify({ user_id: parseUser.user_id })
     }
     return config
   } catch (error) {
