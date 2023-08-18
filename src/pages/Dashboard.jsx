@@ -96,7 +96,7 @@ function Dashboard() {
     setLoading('table')
     try {
       const query = {
-        status: 'S',
+        status: 'ACTIVE',
         user_id: user.user_id
       }
       const { data }  = await fetchGetMany(query)
