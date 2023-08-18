@@ -45,12 +45,13 @@ function Dashboard() {
     uf: ''
   })
   const [collaborator, setCollaborator] = useState({
+    collaborator_id: null,
     name: '',
     email: '',
     birthday: '',
     contact: '',
     payment: '',
-    associationDate: ''
+    associationdate: ''
   })
   const [debouncedSearch] = useDebounce(search, 1000)
   const nameInputRef = useRef()
@@ -61,7 +62,7 @@ function Dashboard() {
       { label: 'E-mail', key: 'email' },
       { label: 'Contato', key: 'contact' },
       { label: 'Mensalidade', key: 'payment' },
-      { label: 'Data Associação', key: 'associationDate' },
+      { label: 'Data Associação', key: 'associationdate' },
       { label: 'Aniversário', key: 'birthday' },
       { label: 'CEP', key: 'cep' },
       { label: 'Rua', key: 'street' },
@@ -70,7 +71,7 @@ function Dashboard() {
       { label: 'UF', key: 'uf' },
       { label: 'Complemento', key: 'complement' }
     ])
-    setVisibleColumns(['name', 'email', 'contact', 'payment', 'associationDate', 'birthday'])
+    setVisibleColumns(['name', 'email', 'contact', 'payment', 'associationdate', 'birthday'])
     getAllCollaborators()
   }, [])
 
@@ -93,9 +94,10 @@ function Dashboard() {
         status: 'S',
         user_id: user.user_id
       }
-      const collaborators = await fetchGetMany(query)
-      setCollaborators(collaborators)
-      setCollaboratorsAPI(collaborators)
+      const { data }  = await fetchGetMany(query)
+
+      setCollaborators(data)
+      setCollaboratorsAPI(data)
     } catch (error) {
       console.error(error)
     } finally {
@@ -113,14 +115,16 @@ function Dashboard() {
       setLoading('collaborator')
 
       let collaborator
-      console.log(collaboratorData)
+      let result = []
       if (action === 'register') {
         collaborator = await fetchCreate(collaboratorData)
+        result = [...collaborators, collaborator]
       } else {
-        collaborator = await fetchUpdate(collaboratorData)
+        collaborator = await fetchUpdate(collaboratorData.collaborator_id, collaboratorData)
+        const collaboratorsWithOutUpdated = collaborators.filter(item => item.collaborator_id !== collaboratorData.collaborator_id)
+        result = [...collaboratorsWithOutUpdated, collaborator]
       }
 
-      const result = [...collaborators, collaborator]
       setCollaborators(result)
       setCollaboratorsAPI(result)
     } catch (error) {
@@ -199,7 +203,7 @@ function Dashboard() {
       birthday: '',
       contact: '',
       payment: '',
-      associationDate: ''
+      associationdate: ''
     })
   }
 
@@ -208,7 +212,23 @@ function Dashboard() {
     try {
       const collaborator = await fetchGetOne(line.collaborator_id)
 
-      setCollaborator(collaborator)
+      setCollaborator({
+        collaborator_id: collaborator.collaborator_id,
+        name: collaborator.name,
+        email: collaborator.email,
+        birthday: collaborator.birthday,
+        contact: collaborator.contact,
+        payment: collaborator.payment,
+        associationdate: collaborator.associationdate
+      })
+      setAddress({
+        cep: collaborator.cep,
+        neighborhood: collaborator.neighborhood,
+        complement: collaborator.complement,
+        city: collaborator.city,
+        street: collaborator.street,
+        uf: collaborator.uf
+      })
       setOpenModal('details')
     } catch (error) {
       console.error(error)
@@ -296,7 +316,7 @@ function Dashboard() {
             <Table.Row className='bg-white dark:border-gray-700'>
               <Table.Cell colSpan={visibleColumns.length + 1}>
                 <div className='flex justify-center items-center'>
-                  <Spinner color='primary-100' size='w-5 h-5'/>
+                  <Spinner color='primary-500' size='w-5 h-5'/>
                 </div>
               </Table.Cell>
             </Table.Row>
@@ -416,11 +436,11 @@ function Dashboard() {
                       value={collaborator.payment}
                     />
                     <div className='mb-2 block'>
-                      <Label htmlFor='associationDate' value='Data Associação' />
+                      <Label htmlFor='associationdate' value='Data Associação' />
                     </div>
                     <DatePicker
-                      id='associationDate'
-                      onChange={date => handleCollaborator({ associationDate: date })}
+                      id='associationdate'
+                      onChange={date => handleCollaborator({ associationdate: date })}
                     />
                   </div>
                 </section>
