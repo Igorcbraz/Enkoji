@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
 export const http = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8080',
   timeout: 5000
 })
 
