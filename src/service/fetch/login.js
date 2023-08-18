@@ -6,5 +6,4 @@ const fetchLogin = async (user) => {
   return data
 }
 
-
 export { fetchLogin }

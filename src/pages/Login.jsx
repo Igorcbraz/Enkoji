@@ -5,10 +5,13 @@ import {
   EyeIcon,
   EyeSlashIcon,
 } from '@heroicons/react/24/solid'
+import { useNavigate } from 'react-router-dom'
+
 import { Spinner } from '../components/Spinner/Spinner'
 import { fetchLogin } from '../service/fetch/login'
 
 export const Login = () => {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -27,7 +30,7 @@ export const Login = () => {
 
       if (user) {
         localStorage.setItem('user', JSON.stringify(user))
-
+        navigate('/app/dashboard')
       }
     } catch (error) {
       console.log(error)

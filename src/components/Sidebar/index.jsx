@@ -5,7 +5,7 @@ import { useWindowDimensions } from '../../hooks/useWindowDimentions'
 import { Desktop } from './Desktop';
 import { Mobile } from './Mobile';
 
-export const Navbar = () => {
+export const Sidebar = () => {
   const { width } = useWindowDimensions();
 
   return width > 768 ? <Desktop/> : <Mobile/>

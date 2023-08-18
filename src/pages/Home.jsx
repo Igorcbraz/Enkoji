@@ -25,8 +25,7 @@ import Instagram from '../assets/icons/instagram.svg';
 import Facebook from '../assets/icons/facebook.svg';
 import WhatsApp from '../assets/icons/whatsapp.svg';
 import Youtube from '../assets/icons/youtube.svg';
-import { ReactComponent as Waze } from '../assets/icons/waze.svg';
-import { ReactComponent as Maps } from '../assets/icons/maps.svg';
+import { Maps, Waze } from '../assets/icons';
 
 export const Home = () => {
   const rightToLeft = useSpring({
