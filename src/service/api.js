@@ -15,7 +15,6 @@ const errorHandler = (error) => {
   return Promise.reject({ ...error })
 }
 
-
 http.interceptors.response.use(
   (response) => {return response},
   (error) => errorHandler(error)
