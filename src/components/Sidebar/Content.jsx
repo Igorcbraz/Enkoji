@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom'
+import {
+  ArrowLeftOnRectangleIcon
+} from '@heroicons/react/24/solid'
+import { useNavigate } from 'react-router-dom'
 
 import { routes } from '../../routes/sidebar'
 import { Submenu } from './Submenu'
 
 import * as Icons from '../../assets/icons'
+
 
 function Icon({ icon, ...props }) {
   const Icon = Icons[icon]
@@ -11,12 +16,25 @@ function Icon({ icon, ...props }) {
 }
 
 export const Content = () => {
+  const navigate = useNavigate()
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  const handleLogout = () => {
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
+
   return (
-    <div className='py-4 text-white'>
-      <a className='ml-6 text-lg font-bold text-white' href='#'>
-        Templo Enkoji
-      </a>
-      <ul className='mt-6 space-y-4'>
+    <div className='flex flex-col items-stretch justify-between h-screen py-4 text-white'>
+      <span>
+        <a className='ml-6 text-lg font-bold text-white' href='#'>
+          {user?.firstName} {user?.lastName}
+        </a>
+        <p className='ml-6 text-sm font-medium text-primary-300'>
+          {user?.role.toUpperCase() === 'ADMIN' ? 'Administrador' : 'Colaborador'}
+        </p>
+      </span>
+      <ul className='self-start h-full mt-8 space-y-4'>
         {routes.map(route =>
           route.routes ? (
             <Submenu route={route} key={route.name} />
@@ -40,6 +58,15 @@ export const Content = () => {
           )
         )}
       </ul>
+      <div className='px-6 my-6'>
+        <button
+          className='flex justify-center items-center text-md font-medium w-full bg-primary-800 rounded-lg py-2 transition hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500'
+          onClick={handleLogout}
+        >
+          Sair
+          <ArrowLeftOnRectangleIcon className='w-5 h-5 ml-2' aria-hidden='true' />
+        </button>
+      </div>
     </div>
   )
 }

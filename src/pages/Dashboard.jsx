@@ -33,7 +33,6 @@ function Dashboard() {
   const [loading, setLoading] = useState('')
   const [search, setSearch] = useState('')
   const [collaborators, setCollaborators] = useState([])
-  const [collaboratorsAPI, setCollaboratorsAPI] = useState([])
   const [columns, setColumns] = useState([])
   const [visibleColumns, setVisibleColumns] = useState([])
   const [metrics, setMetrics] = useState({
@@ -56,7 +55,15 @@ function Dashboard() {
     birthday: '',
     contact: '',
     payment: '',
+    status: 'ACTIVE',
     associationdate: null
+  })
+  const [advancedSearch, setAdvancedSearch] = useState({
+    status: ['ACTIVE'],
+    firstname: '',
+    lastname: '',
+    email: '',
+    contact: ''
   })
   const [debouncedSearch] = useDebounce(search, 1000)
   const nameInputRef = useRef()
@@ -81,29 +88,25 @@ function Dashboard() {
   }, [])
 
   useEffect(() => {
-    const filterCollaborators = collaboratorsAPI.filter(collaborator => {
-      const validation = collaborator.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-      collaborator.email.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-      collaborator.contact.toLowerCase().includes(debouncedSearch.toLowerCase())
-
-      return validation
-    })
-
-    setCollaborators(filterCollaborators)
+    getAllCollaborators(debouncedSearch)
   }, [debouncedSearch])
 
-  const getAllCollaborators = async () => {
+  useEffect(() => {
+    metricSetter(collaborators)
+  }, [collaborators])
+
+  const getAllCollaborators = async (filter) => {
     setLoading('table')
     try {
       const query = {
         status: 'ACTIVE',
-        user_id: user.user_id
+        user_id: user.user_id,
+        filter
       }
       const { data }  = await fetchGetMany(query)
 
       metricSetter(data)
       setCollaborators(data)
-      setCollaboratorsAPI(data)
     } catch (error) {
       console.error(error)
     } finally {
@@ -128,11 +131,15 @@ function Dashboard() {
       } else {
         collaborator = await fetchUpdate(collaboratorData.collaborator_id, collaboratorData)
         const collaboratorsWithOutUpdated = collaborators.filter(item => item.collaborator_id !== collaboratorData.collaborator_id)
-        result = [...collaboratorsWithOutUpdated, collaborator]
+
+        if (collaborator.status.toUpperCase() === 'INACTIVE') {
+          result = collaboratorsWithOutUpdated
+        } else {
+          result = [...collaboratorsWithOutUpdated, collaborator]
+        }
       }
 
       setCollaborators(result)
-      setCollaboratorsAPI(result)
     } catch (error) {
       console.error(error)
     } finally {
@@ -193,6 +200,24 @@ function Dashboard() {
     }
   }
 
+  const handleAdvancedSearch = async () => {
+    setLoading('filter')
+    try {
+      const query = {
+        ...advancedSearch,
+        user_id: user.user_id,
+      }
+      const { data } = await fetchGetMany(query)
+
+      setCollaborators(data)
+      setOpenModal(undefined)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading('')
+    }
+  }
+
   const clearFields = () => {
     setOpenModal(undefined)
     setAddress({
@@ -209,7 +234,15 @@ function Dashboard() {
       birthday: '',
       contact: '',
       payment: '',
+      status: 'ACTIVE',
       associationdate: null
+    })
+    setAdvancedSearch({
+      status: 'ACTIVE',
+      firstname: '',
+      lastname: '',
+      email: '',
+      contact: ''
     })
   }
 
@@ -225,7 +258,8 @@ function Dashboard() {
         birthday: collaborator.birthday,
         contact: collaborator.contact,
         payment: collaborator.payment,
-        associationdate: collaborator.associationdate
+        associationdate: collaborator.associationdate,
+        status: collaborator.status
       })
       setAddress({
         cep: collaborator.cep,
@@ -235,7 +269,7 @@ function Dashboard() {
         street: collaborator.street,
         uf: collaborator.uf
       })
-      setOpenModal('details')
+      setOpenModal('update')
     } catch (error) {
       console.error(error)
     } finally {
@@ -302,11 +336,11 @@ function Dashboard() {
       </div>
 
       <div className='flex justify-between items-center p-2 gap-2'>
-        <Button color='info'>
+        <Button color='info' onClick={() => setOpenModal('filter')}>
           <FunnelIcon className='w-5 h-5' aria-hidden='true' />
         </Button>
         <TextInput
-          placeholder='Pesquisar...'
+          placeholder='Pesquisar (Nome, E-mail, Contato)'
           className='w-full'
           onChange={e => setSearch(e.target.value)}
         />
@@ -373,23 +407,33 @@ function Dashboard() {
       </Table>
 
       <Modal
-        show={['register', 'details'].includes(openModal)}
+        show={['register', 'update'].includes(openModal)}
         size='4xl'
         popup
-        onClose={() => setOpenModal(undefined)}
+        onClose={clearFields}
         initialFocus={nameInputRef}
       >
         <Modal.Header/>
         <Modal.Body>
           <div className='space-y-6'>
-            <span className='space-y-2'>
-              <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
-                { openModal === 'register' ? 'Registrar Colaborador' : 'Detalhes do Colaborador'}
-              </h3>
-              <p className='text-gray-600 dark:text-gray-400'>
-                { openModal === 'register' ? 'Preencha os campos abaixo para registrar um novo colaborador' : 'Visualize os dados do colaborador'}
-              </p>
-            </span>
+            <div className='flex justify-between items-center'>
+              <span className='space-y-2'>
+                <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
+                  { openModal === 'register' ? 'Registrar Colaborador' : 'Detalhes do Colaborador'}
+                </h3>
+                <p className='text-gray-600 dark:text-gray-400'>
+                  { openModal === 'register' ? 'Preencha os campos abaixo para registrar um novo colaborador' : 'Visualize os dados do colaborador'}
+                </p>
+              </span>
+              {openModal === 'update' && (
+                <Button
+                  color={collaborator.status === 'ACTIVE' ? 'success' : 'failure'}
+                  onClick={() => handleCollaborator({ status: collaborator.status === 'ACTIVE' ? 'INACTIVE' : 'ACTIVE' })}
+                >
+                  {collaborator.status === 'ACTIVE' ? 'Ativo' : 'Inativo'}
+                </Button>
+              )}
+            </div>
             <Tabs.Group
               aria-label='Tabs with underline'
               style='underline'
@@ -587,6 +631,103 @@ function Dashboard() {
                 )}
               </Button>
             </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        show={openModal === 'filter'}
+        size='4xl'
+        popup
+        onClose={clearFields}
+      >
+        <Modal.Header/>
+        <Modal.Body>
+          <div className='space-y-6'>
+            <div className='flex justify-between items-center'>
+              <span className='space-y-2'>
+                <h3 className='text-xl font-bold text-gray-900 dark:text-white'>
+                  Filtrar Colaboradores
+                </h3>
+                <p className='text-gray-600 dark:text-gray-400'>
+                  Preencha os campos abaixo para filtrar os colaboradores
+                </p>
+              </span>
+              <Button
+                color={advancedSearch.status.includes('INACTIVE') ? 'success' : 'failure'}
+                onClick={() => setAdvancedSearch({ ...advancedSearch, status: advancedSearch.status.includes('INACTIVE') ? ['ACTIVE'] : ['ACTIVE', 'INACTIVE'] })}
+              >
+                {advancedSearch.status.includes('INACTIVE') ? 'Esconder inativos' : 'Mostrar inativos'}
+              </Button>
+            </div>
+            <section className='grid grid-cols-2 gap-4'>
+              <div className='space-y-3'>
+                <div className='mb-2 block'>
+                  <Label htmlFor='name' value='Nome' />
+                </div>
+                <TextInput
+                  id='name'
+                  placeholder='Nome'
+                  type='text'
+                  onChange={e => setAdvancedSearch({ ...advancedSearch, firstname: e.target.value.trim() })}
+                  value={advancedSearch.firstname}
+                />
+              </div>
+              <div className='space-y-3'>
+                <div className='mb-2 block'>
+                  <Label htmlFor='lastname' value='Sobrenome' />
+                </div>
+                <TextInput
+                  id='lastname'
+                  placeholder='Sobrenome'
+                  type='text'
+                  onChange={e => setAdvancedSearch({ ...advancedSearch, lastname: e.target.value.trim() })}
+                  value={advancedSearch.lastname}
+                />
+              </div>
+              <div className='space-y-3'>
+                <div className='mb-2 block'>
+                  <Label htmlFor='email' value='E-mail' />
+                </div>
+                <TextInput
+                  id='email'
+                  placeholder='E-mail'
+                  type='email'
+                  onChange={e => setAdvancedSearch({ ...advancedSearch, email: e.target.value.trim() })}
+                  value={advancedSearch.email}
+                />
+              </div>
+              <div className='space-y-3'>
+                <div className='mb-2 block'>
+                  <Label htmlFor='contact' value='Contato' />
+                </div>
+                <TextInput
+                  id='contact'
+                  placeholder='Contato'
+                  type='tel'
+                  onChange={e => setAdvancedSearch({ ...advancedSearch, contact: e.target.value.trim() })}
+                  value={advancedSearch.contact}
+                />
+              </div>
+            </section>
+          </div>
+          <div className='flex justify-end w-full mt-5'>
+            <Button
+              class='bg-transparent mr-1 text-gray-600 hover:bg-gray-100 hover:text-gray-600 transition rounded-md'
+              onClick={clearFields}
+            >
+              Voltar
+            </Button>
+            <Button
+              color='success'
+              type='submit'
+              onClick={handleAdvancedSearch}
+            >
+              { loading === 'filter' ? (
+                <Spinner color='primary-100' size='w-5 h-5 q-ml-2'/>
+              ) : (
+                'Confirmar'
+              )}
+            </Button>
           </div>
         </Modal.Body>
       </Modal>
