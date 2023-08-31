@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Table, TextInput, Button, Modal, Label, Tabs } from 'flowbite-react'
+import { Table, TextInput, Button, Modal, Label, Tabs, Pagination } from 'flowbite-react'
 import {
   FunnelIcon,
   TrashIcon,
@@ -35,6 +35,8 @@ function Dashboard() {
   const [collaborators, setCollaborators] = useState([])
   const [columns, setColumns] = useState([])
   const [visibleColumns, setVisibleColumns] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState({})
   const [metrics, setMetrics] = useState({
     totalAssociates: 0,
     totalPayment: 0,
@@ -99,12 +101,15 @@ function Dashboard() {
     setLoading('table')
     try {
       const query = {
+        page: currentPage,
+        limit: 10,
         status: 'ACTIVE',
         user_id: user.user_id,
         filter
       }
-      const { data }  = await fetchGetMany(query)
-
+      const { data, meta }  = await fetchGetMany(query)
+      const pages = Math.ceil(meta.count / meta.limit)
+      setTotalPages(pages)
       metricSetter(data)
       setCollaborators(data)
     } catch (error) {
@@ -144,9 +149,8 @@ function Dashboard() {
       console.error(error)
     } finally {
       setLoading('')
+      clearFields()
     }
-
-    clearFields()
   }
 
   const getCompleteAddress = async (cep) => {
@@ -301,7 +305,7 @@ function Dashboard() {
 
   return (
     <>
-      <PageTitle>Dashboard</PageTitle>
+      <PageTitle>Colaboradores</PageTitle>
 
       <div className='grid gap-6 mb-8 grid-cols-3'>
         <InfoCard title='Total de Associados' value={metrics.totalAssociates}>
@@ -406,6 +410,15 @@ function Dashboard() {
         )}
       </Table>
 
+      <div className='flex justify-end items-center mt-3'>
+        <Pagination
+          currentPage={currentPage}
+          onPageChange={page => { setCurrentPage(page) }}
+          showIcons
+          totalPages={totalPages}
+        />
+      </div>
+
       <Modal
         show={['register', 'update'].includes(openModal)}
         size='4xl'
@@ -465,7 +478,6 @@ function Dashboard() {
                       id='email'
                       placeholder='nome@empresa.com'
                       type='email'
-                      required
                       onChange={e => handleCollaborator({ email: e.target.value })}
                       value={collaborator.email}
                       color={validateEmail(collaborator.email) ? 'success' : 'warning'}
@@ -622,7 +634,7 @@ function Dashboard() {
                 color='success'
                 type='submit'
                 onClick={() => createOrModifyCollaborator(openModal)}
-                disabled={!collaborator.name || !validateEmail(collaborator.email)}
+                disabled={!collaborator.name || (collaborator.email.length > 0 && !validateEmail(collaborator.email))}
               >
                 { loading === 'collaborator' ? (
                   <Spinner color='primary-100' size='w-5 h-5 q-ml-2'/>

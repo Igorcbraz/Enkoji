@@ -1,7 +1,7 @@
 export const routes = [
   {
-    path: '/app/dashboard',
-    icon: 'HomeIcon', // the component being exported from assets/icons/index.js
-    name: 'Dashboard',
+    path: '/app/colaboradores',
+    icon: 'PeopleIcon', // the component being exported from assets/icons/index.js
+    name: 'Colaboradores',
   }
 ]
