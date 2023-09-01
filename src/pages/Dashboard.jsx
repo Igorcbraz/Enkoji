@@ -10,6 +10,7 @@ import {
 import { DatePicker } from '../components/DatePicker'
 import axios from 'axios'
 import { useDebounce } from 'use-debounce'
+import { downloadExcel } from 'react-export-table-to-excel'
 
 import { InfoCard } from '../components/Cards/InfoCard'
 import { PageTitle } from '../components/Typography/PageTitle'
@@ -25,7 +26,7 @@ import {
   fetchRemove
 } from '../service/fetch/collaborators'
 
-import { PeopleIcon, MoneyIcon, CartIcon } from '../assets/icons'
+import { PeopleIcon, MoneyIcon, CartIcon, ExcelIcon } from '../assets/icons'
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user'))
@@ -36,7 +37,7 @@ function Dashboard() {
   const [columns, setColumns] = useState([])
   const [visibleColumns, setVisibleColumns] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState({})
+  const [totalPages, setTotalPages] = useState(1)
   const [metrics, setMetrics] = useState({
     totalAssociates: 0,
     totalPayment: 0,
@@ -90,23 +91,25 @@ function Dashboard() {
   }, [])
 
   useEffect(() => {
-    getAllCollaborators(debouncedSearch)
+    getAllCollaborators({ filter: debouncedSearch })
   }, [debouncedSearch])
 
   useEffect(() => {
     metricSetter(collaborators)
   }, [collaborators])
 
-  const getAllCollaborators = async (filter) => {
-    setLoading('table')
+  const getAllCollaborators = async ({ filter = '', loading = 'table' }) => {
+    setLoading(loading)
     try {
       const query = {
         page: currentPage,
         limit: 10,
-        status: 'ACTIVE',
         user_id: user.user_id,
-        filter
+        ...advancedSearch
       }
+
+      if (filter) query.filter = filter
+
       const { data, meta }  = await fetchGetMany(query)
       const pages = Math.ceil(meta.count / meta.limit)
       setTotalPages(pages)
@@ -116,6 +119,7 @@ function Dashboard() {
       console.error(error)
     } finally {
       setLoading('')
+      setOpenModal(undefined)
     }
   }
 
@@ -204,24 +208,6 @@ function Dashboard() {
     }
   }
 
-  const handleAdvancedSearch = async () => {
-    setLoading('filter')
-    try {
-      const query = {
-        ...advancedSearch,
-        user_id: user.user_id,
-      }
-      const { data } = await fetchGetMany(query)
-
-      setCollaborators(data)
-      setOpenModal(undefined)
-    } catch (error) {
-      console.error(error)
-    } finally {
-      setLoading('')
-    }
-  }
-
   const clearFields = () => {
     setOpenModal(undefined)
     setAddress({
@@ -303,6 +289,30 @@ function Dashboard() {
     })
   }
 
+  const handleDownloadExcel = () => {
+    const header = visibleColumns.map(column => {
+      const columnLabel = columns.find(item => item.key === column).label
+      return columnLabel
+    })
+
+    const body = collaborators.map(collaborator => {
+      const formatCollaborator = {}
+      visibleColumns.forEach(column => {
+        formatCollaborator[column] = collaborator[column]
+      })
+      return formatCollaborator
+    })
+
+    downloadExcel({
+      fileName: 'Colaboradores',
+      sheet: 'Colaboradores',
+      tablePayload: {
+        header:header,
+        body: body,
+      },
+    })
+  }
+
   return (
     <>
       <PageTitle>Colaboradores</PageTitle>
@@ -342,6 +352,9 @@ function Dashboard() {
       <div className='flex justify-between items-center p-2 gap-2'>
         <Button color='info' onClick={() => setOpenModal('filter')}>
           <FunnelIcon className='w-5 h-5' aria-hidden='true' />
+        </Button>
+        <Button color='info' className='p-0' onClick={handleDownloadExcel}>
+          <ExcelIcon className='w-6 h-6' />
         </Button>
         <TextInput
           placeholder='Pesquisar (Nome, E-mail, Contato)'
@@ -383,8 +396,8 @@ function Dashboard() {
           </Table.Body>
         ) : (
           <Table.Body className='divide-y'>
-            {collaborators.map((collaborator) => (
-              <Table.Row key={collaborator.email} className='bg-white dark:border-gray-700'>
+            {collaborators.map(collaborator => (
+              <Table.Row key={collaborator.email} className={`${collaborator.status === 'ACTIVE' ? 'bg-white' : 'bg-red-200'}`}>
                 {visibleColumns.map((column) => (
                   <Table.Cell key={column} onClick={() => handleOpenLine(collaborator)} className='cursor-pointer'>
                     <span className='text-sm text-gray-900 dark:text-white'>
@@ -415,6 +428,8 @@ function Dashboard() {
           currentPage={currentPage}
           onPageChange={page => { setCurrentPage(page) }}
           showIcons
+          nextLabel='Próximo'
+          previousLabel='Anterior'
           totalPages={totalPages}
         />
       </div>
@@ -732,7 +747,7 @@ function Dashboard() {
             <Button
               color='success'
               type='submit'
-              onClick={handleAdvancedSearch}
+              onClick={() => getAllCollaborators({ loading: 'filter' })}
             >
               { loading === 'filter' ? (
                 <Spinner color='primary-100' size='w-5 h-5 q-ml-2'/>

@@ -5,6 +5,7 @@ export const RoundIcon = ({
   icon: Icon,
   iconColorClass = 'text-primary-600',
   bgColorClass = 'bg-primary-100 ',
+  iconClassName = 'w-5 h-5',
   className,
 }) => {
   const baseStyle = 'p-3 rounded-full'
@@ -12,7 +13,7 @@ export const RoundIcon = ({
   const cls = classNames(baseStyle, iconColorClass, bgColorClass, className)
   return (
     <div className={cls}>
-      <Icon className='w-5 h-5' />
+      <Icon className={iconClassName} />
     </div>
   )
 }

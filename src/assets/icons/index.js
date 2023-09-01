@@ -7,6 +7,7 @@ import { ReactComponent as CartIcon } from './cart.svg'
 import { ReactComponent as ChatIcon } from './chat.svg'
 import { ReactComponent as Waze } from './waze.svg'
 import { ReactComponent as Maps } from './maps.svg'
+import { ReactComponent as ExcelIcon } from './excel.svg'
 
 export {
   ForbiddenIcon,
@@ -17,5 +18,6 @@ export {
   CartIcon,
   ChatIcon,
   Waze,
-  Maps
+  Maps,
+  ExcelIcon,
 }
