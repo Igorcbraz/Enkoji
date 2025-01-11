@@ -6,13 +6,14 @@ import {
   EnvelopeIcon
 } from '@heroicons/react/24/solid'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useNavigate } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import { Badge } from '../components/Badge'
 import { Card } from '../components/Card'
 import { Animation } from '../components/Animation'
 import { Title } from '../components/Title'
 import { AddressMap } from '../components/AddressMap'
+
+import { useAnalyticsEventTracker } from '../hooks/useAnalyticsEventTracker.jsx'
 
 import { Links } from '../constants/links.js'
 
@@ -35,7 +36,7 @@ import GMaps from '../assets/icons/maps.svg'
 import Waze from '../assets/icons/waze.svg'
 
 export const Home = () => {
-  const navigate = useNavigate()
+  const gaEventTracker = useAnalyticsEventTracker()
 
   const getNestedProperty = (obj, key) => {
     return key.split('.').reduce((o, i) => (o ? o[i] : null), obj)
@@ -45,6 +46,7 @@ export const Home = () => {
     const link = getNestedProperty(Links, key)
 
     if (!link) return console.error(`Link not found for key: ${key}`)
+    gaEventTracker('click', key)
 
     window.open(link, '_blank')
   }
@@ -76,9 +78,9 @@ export const Home = () => {
             <Animation type='fadeInBottom' containerClass='hidden xl:block self-start'>
               <button
                 className='text-lg uppercase font-semibold mt-5 px-7 py-3 rounded-full font-body text-white border-primary-300 border-[1px] bg-gradient-to-r from-primary-400 to-primary-450 shadow-xl shadow-primary-600 transition ease-in-out hover:shadow-primary-700 hover:bg-primary-400 hover:scale-105'
-                onClick={() => navigate('/contato')}
+                onClick={() => handleOpenLink('joinUs')}
               >
-              Junte-se a Nós
+                Junte-se a Nós
               </button>
             </Animation>
           </div>
@@ -91,7 +93,7 @@ export const Home = () => {
             />
             <button
               className='block xl:hidden text-sm sm:text-md md:text-lg uppercase font-medium px-7 py-3 rounded-full font-body text-white border-primary-300 border-[1px] bg-gradient-to-r from-primary-400 to-primary-450 shadow-xl shadow-primary-600 transition ease-in-out hover:shadow-primary-700 hover:bg-primary-400 hover:scale-105'
-              onClick={() => navigate('/contato')}
+              onClick={() => handleOpenLink('joinUs')}
             >
               Junte-se a Nós
             </button>

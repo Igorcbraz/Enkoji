@@ -13,5 +13,6 @@ export const Links = {
     maps: 'https://g.page/r/CbW4barwEzszEBM'
   },
   schedule: 'https://calendar.google.com/calendar/u/6/r/month/2023/7/1',
-  retreat: 'https://www.meuretiro.com.br/experiencia/4so5t9w1/Templo_Enkoji-Mizen_Fotografia_Contemplativa'
+  retreat: 'https://www.meuretiro.com.br/experiencia/4so5t9w1/Templo_Enkoji-Mizen_Fotografia_Contemplativa',
+  joinUs: 'https://linktr.ee/temploenkoji',
 }
