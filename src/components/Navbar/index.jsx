@@ -6,5 +6,5 @@ import { Mobile } from './Mobile';
 export const Navbar = () => {
   const { width } = useWindowDimensions();
 
-  return width > 768 ? <Desktop/> : <Mobile/>
+  return width > 1000 ? <Desktop/> : <Mobile/>
 }
