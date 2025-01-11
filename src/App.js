@@ -1,15 +1,22 @@
 import { Routes, Route } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+
+import { MapProvider } from './context/MapContext'
+import { usePageViewTracker } from './hooks/usePageViewTracker'
 
 import { Home } from './pages/Home'
 
 function App() {
+  usePageViewTracker()
+
   return (
-    <div className='App'>
+    <MapProvider>
       <Routes>
         <Route path='/' element={ <Home/> } />
       </Routes>
-    </div>
-  );
+      <SpeedInsights/>
+    </MapProvider>
+  )
 }
 
-export default App;
+export default App

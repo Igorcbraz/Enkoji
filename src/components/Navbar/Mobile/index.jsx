@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { Links } from '../../../utils/links'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+
+import { Links } from '../../../constants/links'
 
 import Logo from '../../../assets/images/logo.png'
 
 export const Mobile = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedItem, setSelectedItem] = useState('')
+  const [selectedItem, setSelectedItem] = useState(null)
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
@@ -18,10 +20,10 @@ export const Mobile = () => {
   }
 
   return (
-    <nav className='bg-gradient-to-r from-primary-500 z-50 to-primary-800 px-2 py-2.5 fixed w-screen top-0 left-0'>
+    <nav className='bg-gradient-to-r from-primary-500 z-50 to-primary-800 px-7 py-2.5 fixed w-screen top-0 left-0'>
       <div className='container flex flex-wrap items-center justify-between'>
         <a href='#' className='flex items-center'>
-          <img src={Logo} className='h-14' alt='Enkoji Logo' />
+          <LazyLoadImage src={Logo} className='h-14' alt='Enkoji Logo' />
         </a>
         <button
           onClick={handleToggle}
@@ -35,37 +37,27 @@ export const Mobile = () => {
           <ul className='flex flex-col p-4 mt-4g gap-2 border border-primary-300 rounded-lg bg-gradient-to-r from-primary-500 to-primary-800 '>
             <li>
               <button
-                onClick={() => handleActivationNavItem(1, '#history')}
+                onClick={() => handleActivationNavItem(1, '#infos')}
                 className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 1 ? 'bg-primary-400' : ''}`}
+              >
+                Programação
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleActivationNavItem(2, '#history')}
+                className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 2 ? 'bg-primary-400' : ''}`}
               >
                 Sobre nós
               </button>
             </li>
             <li>
               <button
-                onClick={() => handleActivationNavItem(2, '#buddhism')}
-                className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 2 ? 'bg-primary-400' : ''}`}
+                onClick={() => handleActivationNavItem(3, '#buddhism')}
+                className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 3 ? 'bg-primary-400' : ''}`}
               >
                 Budismo
               </button>
-            </li>
-            <li>
-              <button
-                onClick={() => handleActivationNavItem(3, '#infos')}
-                className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 3 ? 'bg-primary-400' : ''}`}
-              >
-                Programação
-              </button>
-            </li>
-            <li>
-              <a
-                href={Links.socialMedia.shop}
-                target='_blank'
-                rel='noreferrer'
-                className='block py-2 pl-3 pr-4 text-white rounded hover:bg-primary-800'
-              >
-                Contribuição
-              </a>
             </li>
             <li>
               <button
@@ -77,11 +69,21 @@ export const Mobile = () => {
             </li>
             <li>
               <button
-                onClick={() => handleActivationNavItem(5, '#infos')}
+                onClick={() => handleActivationNavItem(5, '#experience')}
                 className={`block py-2 pl-3 pr-4 w-full text-start text-white rounded ${selectedItem === 5 ? 'bg-primary-400' : ''}`}
               >
-                Visite
+                Sua Experiência
               </button>
+            </li>
+            <li>
+              <a
+                href={Links.socialMedia.shop}
+                target='_blank'
+                rel='noreferrer'
+                className='block py-2 pl-3 pr-4 text-white rounded hover:bg-primary-800'
+              >
+                Contribuição
+              </a>
             </li>
           </ul>
         </div>

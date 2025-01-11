@@ -1,10 +1,10 @@
 import { useWindowDimensions } from '../../hooks/useWindowDimentions'
 
-import { Desktop } from './Desktop';
-import { Mobile } from './Mobile';
+import { Desktop } from './Desktop'
+import { Mobile } from './Mobile'
 
 export const Navbar = () => {
-  const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions()
 
-  return width > 768 ? <Desktop/> : <Mobile/>
+  return width > 1000 ? <Desktop/> : <Mobile/>
 }
