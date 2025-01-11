@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useMap } from '../../context/MapContext';
+import PropTypes from 'prop-types'
+import { useEffect } from 'react'
+import { useMap } from '../../context/MapContext'
 
 export const AddressMap = ({ className = 'w-full h-full' }) => {
-  const { mapIframe, setMapIframe } = useMap();
+  const { mapIframe, setMapIframe } = useMap()
 
   useEffect(() => {
     if (!mapIframe) {
@@ -16,14 +16,14 @@ export const AddressMap = ({ className = 'w-full h-full' }) => {
           loading='lazy'
           referrerPolicy='no-referrer-when-downgrade'
         />
-      );
-      setMapIframe(iframe);
+      )
+      setMapIframe(iframe)
     }
-  }, [mapIframe, setMapIframe, className]);
+  }, [mapIframe, setMapIframe, className])
 
-  return mapIframe;
-};
+  return mapIframe
+}
 
 AddressMap.propTypes = {
   className: PropTypes.string,
-};
+}

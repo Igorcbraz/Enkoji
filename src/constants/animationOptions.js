@@ -1,4 +1,4 @@
-import { config } from '@react-spring/web';
+import { config } from '@react-spring/web'
 
 export const animationOptions = {
   fadeInTop: {

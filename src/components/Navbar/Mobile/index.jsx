@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import { Links } from '../../../constants/links'
 

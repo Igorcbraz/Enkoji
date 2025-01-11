@@ -7,7 +7,7 @@ function App() {
     <Routes>
       <Route path='/' element={ <Home/> } />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

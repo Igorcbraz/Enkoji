@@ -1,38 +1,38 @@
-import React from 'react';
+import React from 'react'
 import {
   ClockIcon,
   MapPinIcon,
   UserGroupIcon,
   EnvelopeIcon
 } from '@heroicons/react/24/solid'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useNavigate } from 'react-router-dom';
-import { Navbar } from '../components/Navbar';
-import { Badge } from '../components/Badge';
-import { Card } from '../components/Card';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { useNavigate } from 'react-router-dom'
+import { Navbar } from '../components/Navbar'
+import { Badge } from '../components/Badge'
+import { Card } from '../components/Card'
 import { Animation } from '../components/Animation'
 import { Title } from '../components/Title'
 import { AddressMap } from '../components/AddressMap'
 
 import { Links } from '../constants/links.js'
 
-import Carrousel1 from '../assets/images/carrousel2.jpg';
-import Person1 from '../assets/images/person1.png';
-import Person2 from '../assets/images/person2.png';
-import Person3 from '../assets/images/person3.png';
-import Grid1 from '../assets/images/grid1.png';
-import Grid2 from '../assets/images/grid2.jpg';
-import Grid3 from '../assets/images/grid3.jpg';
-import GridFooter1 from '../assets/images/grid-footer-1.jpg';
-import GridFooter2 from '../assets/images/grid-footer-2.jpg';
-import GridFooter3 from '../assets/images/grid-footer-3.jpg';
+import Carrousel1 from '../assets/images/carrousel2.jpg'
+import Person1 from '../assets/images/person1.png'
+import Person2 from '../assets/images/person2.png'
+import Person3 from '../assets/images/person3.png'
+import Grid1 from '../assets/images/grid1.png'
+import Grid2 from '../assets/images/grid2.jpg'
+import Grid3 from '../assets/images/grid3.jpg'
+import GridFooter1 from '../assets/images/grid-footer-1.jpg'
+import GridFooter2 from '../assets/images/grid-footer-2.jpg'
+import GridFooter3 from '../assets/images/grid-footer-3.jpg'
 
-import Instagram from '../assets/icons/instagram.svg';
-import Facebook from '../assets/icons/facebook.svg';
-import WhatsApp from '../assets/icons/whatsapp.svg';
-import Youtube from '../assets/icons/youtube.svg';
-import GMaps from '../assets/icons/maps.svg';
-import Waze from '../assets/icons/waze.svg';
+import Instagram from '../assets/icons/instagram.svg'
+import Facebook from '../assets/icons/facebook.svg'
+import WhatsApp from '../assets/icons/whatsapp.svg'
+import Youtube from '../assets/icons/youtube.svg'
+import GMaps from '../assets/icons/maps.svg'
+import Waze from '../assets/icons/waze.svg'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -326,5 +326,5 @@ export const Home = () => {
         </div>
       </section>
     </>
-  );
+  )
 }

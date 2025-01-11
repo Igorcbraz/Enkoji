@@ -1,8 +1,8 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-import { Links } from '../../../constants/links';
+import { Links } from '../../../constants/links'
 
-import Logo from '../../../assets/images/logo.png';
+import Logo from '../../../assets/images/logo.png'
 
 export const Desktop = () => {
   return (
