@@ -6,7 +6,7 @@ export const Links = {
     youtube: ' https://www.youtube.com/@enkojitemplo',
     maps: 'https://g.page/r/CbW4barwEzszEBM/review',
     shop: 'https://www.enkoji.com.br/',
-    email: 'mailto:templo.enkoji@gmail.com'
+    email: 'mailto:temploenkoji@gmail.com'
   },
   track: {
     waze: 'https://ul.waze.com/ul?place=ChIJhUh0Wn6yz5QRtbhtqvATOzM&ll=-23.74567900%2C-46.86607150&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location',
